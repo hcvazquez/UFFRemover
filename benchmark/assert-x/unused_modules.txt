@@ -1,0 +1,408 @@
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\safe-to-string-x\lib\safe-to-string-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\lib\error-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\lib\deep-equal-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\define-properties-x\lib\define-properties-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\safe-to-string-x\node_modules\has-symbol-support-x\lib\has-symbol-support-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\has-to-string-tag-x\lib\has-to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\stackframe\dist\stackframe.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\is-error-x\lib\is-error-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\lib\inspect-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\is-nil-x\lib\is-nil-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-map-x\lib\is-map-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-error-x\lib\is-error-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-nil-x\lib\is-nil-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-set-x\lib\is-set-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\define-properties-x\node_modules\has-symbol-support-x\lib\has-symbol-support-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\define-properties-x\node_modules\is-function-x\lib\is-function-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\error-stack-parser\dist\error-stack-parser.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\to-length-x\lib\to-length-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\circular-json\build\circular-json.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\circular-json\build\circular-json.max.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\is-object-like-x\lib\is-object-like-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\has-to-string-tag-x\node_modules\has-symbol-support-x\lib\has-symbol-support-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\is-error-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-function-x\lib\is-function-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-array-buffer-x\lib\is-array-buffer-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-set-x\lib\is-set-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-map-x\lib\is-map-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-data-view-x\lib\is-data-view-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\has-symbol-support-x\lib\has-symbol-support-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\white-space-x\lib\white-space-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\get-function-name-x\lib\get-function-name-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-error-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-map-x\node_modules\is-object-like-x\lib\is-object-like-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-set-x\node_modules\is-object-like-x\lib\is-object-like-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\define-properties-x\node_modules\is-function-x\node_modules\has-to-string-tag-x\lib\has-to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\define-properties-x\node_modules\is-function-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\to-length-x\node_modules\to-integer-x\lib\to-integer-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\error-stack-parser\node_modules\stackframe\dist\stackframe.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\is-object-like-x\node_modules\is-function-x\lib\is-function-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-function-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-array-buffer-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-map-x\node_modules\is-object-like-x\node_modules\is-function-x\lib\is-function-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\inspect-x\node_modules\is-data-view-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-set-x\node_modules\is-object-like-x\node_modules\is-function-x\lib\is-function-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\error-x\node_modules\is-object-like-x\node_modules\is-function-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-map-x\node_modules\is-object-like-x\node_modules\is-function-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-map-x\node_modules\is-object-like-x\node_modules\is-function-x\node_modules\has-to-string-tag-x\lib\has-to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-set-x\node_modules\is-object-like-x\node_modules\is-function-x\node_modules\has-to-string-tag-x\lib\has-to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-set-x\node_modules\is-object-like-x\node_modules\is-function-x\node_modules\to-string-tag-x\lib\to-string-tag-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-set-x\node_modules\is-object-like-x\node_modules\is-function-x\node_modules\has-to-string-tag-x\node_modules\has-symbol-support-x\lib\has-symbol-support-x.js
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\assert-x-master\node_modules\deep-equal-x\node_modules\is-map-x\node_modules\is-object-like-x\node_modules\is-function-x\node_modules\has-to-string-tag-x\node_modules\has-symbol-support-x\lib\has-symbol-support-x.js
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 20363,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 22307,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 22307,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 22307,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 22307,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 22307,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 22307,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23176,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23978,
+  library_files: 51,
+  program_files: 0 }
+{ name: 'library analysis',
+  number_of_functions: 1279,
+  empty_functions: 3,
+  size: 853029,
+  loc: 23978,
+  library_files: 51,
+  program_files: 0 }

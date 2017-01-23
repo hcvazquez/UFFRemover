@@ -1,0 +1,6 @@
+{
+    "camelcase" : true,
+    "asi": true,
+    "laxbreak": true,
+    "expr": true
+}

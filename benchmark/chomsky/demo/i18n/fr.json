@@ -1,0 +1,20 @@
+{
+  "GREETING": "Bonjour, {name}.",
+  "GOODBYE": "Au Revoir, {name}.",
+  "TODAY": "Aujourd'hui est {today:date:DD[/]MM[/]YYYY}.",
+  "TOMORROW": "Aujourd'hui est {tomorrow:date:MM/DD/YYYY:DD-MM-YYYY}.",
+  "MONEY": "Vous devez: {debt:currency}",
+  "NUMBER": "Il y a {people:number:0.0,00} choses",
+  "MESSAGES": {
+    "zero": "Pas de messages.",
+    "1": "Seulement 1 message",
+    "many": "{messages:number:0.0} messages."
+  },
+  "DEFAULTS": {
+    "CURRENCY": "{value:currency}",
+    "DATE": "{value:date}",
+    "DATE_TIME": "{value:date:L}",
+    "TIME": "{value:date:LT}",
+    "NUMBER": "{value:number}"
+  }
+}

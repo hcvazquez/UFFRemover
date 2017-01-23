@@ -1,0 +1,4 @@
+/node_modules/
+/coverage/
+/unexpectedHttp.min.js
+/site-build/

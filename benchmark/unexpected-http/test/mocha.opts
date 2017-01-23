@@ -1,0 +1,5 @@
+-R spec
+--check-leaks
+--recursive
+--timeout 120000
+--require ./bootstrap-unexpected-markdown

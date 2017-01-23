@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- iojs
+deploy:
+  provider: npm
+  email: bvdrucker@gmail.com
+  api_key:
+    secure: kAZtxI9yTXvtubFKDy7uX0GI7+Cw5uvSl/6xl8xS0S4F0Gn6KV0Jw9wvSG+o7TCjj/hMj5tbbByCvxZ6dBQ9m8INUvEphnWwL6ceqU8jo+hpHDrRJIwS64mnwhxeMYVwEi/yrEEJfkbqzd1eBmZw7wrsKW3QGSuwtBfrJM7jxIo=
+  on:
+    tags: true
+    all_branches: true
+    repo: bendrucker/angular-countdown

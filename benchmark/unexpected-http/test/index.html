@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Mocha</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    </head>
+    <body>
+        <div id="mocha"></div>
+        <script src="../node_modules/mocha/mocha.js"></script>
+        <script>mocha.setup('bdd')</script>
+        <script src="../node_modules/unexpected/unexpected.js"></script>
+        <script src="../unexpectedHttp.min.js"></script>
+        <script src="../node_modules/magicpen-prism/magicPenPrism.min.js"></script>
+        <script>
+            var expect = weknowhow.expect.installPlugin(unexpectedHttp).installPlugin(magicPenPrism);
+
+            describe('unexpectedHttp in the browser', function () {
+                it('should assert a content type for HTML', function () {
+                    return expect('GET /test/index.html', 'to yield response', {
+                        headers: {
+                            'Content-Type': /^text\/html/
+                        }
+                    });
+                });
+
+                it('should assert a content type for an image', function () {
+                    return expect('GET /node_modules/mocha/images/error.png', 'to yield response', {
+                        headers: {
+                            'Content-Type': /^image\/png/
+                        }
+                    });
+                });
+            });
+
+            if (window.mochaPhantomJS) {
+                mochaPhantomJS.run();
+            } else {
+                mocha.run();
+            }
+        </script>
+    </body>
+</html>

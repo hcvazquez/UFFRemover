@@ -1,0 +1,24 @@
+box: wercker/nodejs
+build:
+    steps:
+        - npm-install
+        - npm-test
+        - script:
+            name: echo nodejs information
+            code: |
+              echo "node version $(node -v) running"
+              echo "npm version $(npm -v) running"
+
+deploy:
+    steps:
+        - script:
+            name: publish package
+            code: |
+                git config user.email 'pleasemailus@wercker.com'
+                git config user.name 'werckerbot'
+                git checkout $WERCKER_GIT_BRANCH
+                echo "email=$NPM_EMAIL" > ~/.npmrc
+                echo "_auth=$NPM_AUTH_TOKEN" >> ~/.npmrc
+                npm version patch --message "auto-publish %s via wercker [skip ci]"
+                npm publish
+                git push https://$GH_TOKEN@github.com/$WERCKER_GIT_OWNER/$WERCKER_GIT_REPOSITORY

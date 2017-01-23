@@ -1,0 +1,8 @@
+UNUSED MODULE: C:\Users\Usuarioç\Desktop\Pruebas\GOOD\unexpected-messy-master\node_modules\messy\node_modules\quoted-printable\node_modules\utf8\utf8.js
+{ name: 'library analysis',
+  number_of_functions: 11,
+  empty_functions: 0,
+  size: 6378,
+  loc: 244,
+  library_files: 1,
+  program_files: 0 }

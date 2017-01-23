@@ -1,0 +1,62 @@
+{
+  "name": "workfront-api",
+  "version": "1.3.4",
+  "description": "A Workfront API for the Node.js and the Web",
+  "main": "index.js",
+  "dependencies": {
+    "form-data": "0.2.0",
+    "promise": "7.1.1",
+    "workfront-api-constants": "1.0.4"
+  },
+  "devDependencies": {
+    "browserify": "13.0.1",
+    "chai": "3.5.0",
+    "chai-as-promised": "5.3.0",
+    "dateformat": "1.0.12",
+    "del": "1.2.1",
+    "gulp": "3.9.1",
+    "gulp-coveralls": "0.1.4",
+    "gulp-help": "1.6.1",
+    "gulp-istanbul": "1.0.0",
+    "gulp-jsdoc": "0.1.5",
+    "gulp-mocha": "2.2.0",
+    "gulp-rename": "1.2.2",
+    "gulp-uglify": "1.5.3",
+    "http-server": "0.9.0",
+    "nock": "8.0.0",
+    "semver": "5.1.0",
+    "shelljs": "0.5.3",
+    "sinon": "^1.12.2",
+    "sinon-as-promised": "4.0.0",
+    "sinon-chai": "2.8.0",
+    "vinyl-buffer": "1.0.0",
+    "vinyl-source-stream": "1.1.0"
+  },
+  "scripts": {
+    "test": "gulp test-ci",
+    "build": "gulp build",
+    "update-online-docs": "gulp publish-docs",
+    "prepublish": "npm run build",
+    "postpublish": "npm run update-online-docs",
+    "start": "http-server -a localhost -p 8000 -o --cors -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Workfront/workfront-api.git"
+  },
+  "keywords": [
+    "Workfront",
+    "AtTask",
+    "API"
+  ],
+  "author": "Workfront",
+  "contributors": [
+    "Hovhannes Babayan <bhovhannes@gmail.com>",
+    "Sassoun Derderian <citizen.sas@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Workfront/workfront-api/issues"
+  },
+  "homepage": "https://github.com/Workfront/workfront-api"
+}

@@ -1,0 +1,13 @@
+{
+  "GREETING": "Hello, {name}.",
+  "GOODBYE": "Goodbye, {name}.",
+  "TODAY": "Today is {today:date:MM[/]DD[/]YYYY}.",
+  "TOMORROW": "Today is {tomorrow:date:MM/DD/YYYY:MM[/]DD[/]YYYY}.",
+  "MONEY": "You owe: {debt:currency}",
+  "NUMBER": "There are {people:number:0,0.00} things",
+  "MESSAGES": {
+    "zero": "No messages.",
+    "1": "Only 1 message.",
+    "many": "{messages:number:0.0} messages."
+  }
+}

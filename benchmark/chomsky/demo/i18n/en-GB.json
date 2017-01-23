@@ -1,0 +1,6 @@
+{
+  "GREETING": "Ello, {name}.",
+  "GOODBYE": "Good day, {name}.",
+  "TODAY": "Today is {today:date:DD[.]MM[.]YYYY}.",
+  "TOMORROW": "Today is {tomorrow:date:MM/DD/YYYY:DD-MM-YYYY}."
+}

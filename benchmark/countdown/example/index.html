@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script src="angular.js"></script>
+    <script src="bundle.js"></script>
+    <script>
+      angular.module('app', [
+        require('angular-countdown')
+      ])
+      .controller('AppController', function (CountdownTimer) {
+        this.timer = new CountdownTimer(5000);
+      });
+    </script>
+    <style>
+      countdown {
+        margin: 10px;
+      }
+      .countdown-border {
+        fill: blue;
+      }
+    </style>
+  </head>
+  <body ng-app="app">
+    <div ng-controller="AppController as app">
+      <countdown timer="app.timer" radius="25" stroke="5"></countdown>
+      <button ng-click="app.timer.start()">Start</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+
+> underscore.string@3.3.4 test C:\Users\Hernan\Desktop\Tesis Pruebas\underscore.string-master
+> npm run test:unit && npm run coverage
+
+
+> underscore.string@3.3.4 test:unit C:\Users\Hernan\Desktop\Tesis Pruebas\underscore.string-master
+> mocha --ui=qunit tests
+
+
+
+  √ #camelize
+  √ #capitalize
+  √ #chars
+  √ #chop
+  √ #classify
+  √ #clean
+  √ #cleanDiacritics
+  √ #count
+  √ #dasherize
+  √ #decapitalize
+  √ #dedent
+  √ #endsWith
+  √ #escapeHTML
+  √ #escapeRegExp
+  √ #exports
+  √ #humanize
+  √ #include
+  √ #insert
+  √ #isBlank
+  √ #join
+  √ #levenshtein
+  √ #levenshtein non-latin
+  √ #lines
+  √ #lpad
+  √ #lrpad
+  √ #ltrim
+  √ #map
+  √ #naturalCmp
+  √ #naturalSort
+  √ #numberFormat
+  √ #pad
+  √ #pred
+  √ #prune
+  √ #quote
+  √ #repeat
+  √ #replaceAll
+  √ #reverse
+  √ #rpad
+  √ #rtrim
+  √ #slugify
+  √ #splice
+  √ #sprintf
+  √ provides standalone functions via the s global
+  √ has standalone chaining
+  √ chaining supports tapping
+  √ tap breaks the chain if the return value is not a string
+  √ chain objects are immutable
+  √ methods returning non-string values stops the chain
+  √ prototype methods are available in the chain
+  √ PROTOTYPE: toUpperCase
+  √ PROTOTYPE: toLowerCase
+  √ PROTOTYPE: split
+  √ PROTOTYPE: replace
+  √ PROTOTYPE: slice
+  √ PROTOTYPE: substring
+  √ PROTOTYPE: substring
+  √ PROTOTYPE: concat
+  √ PROTOTYPE: can combine methods
+  √ #startsWith
+  √ #stripTags
+  √ #strLeft
+  √ #strLeftBack
+  √ #strRight
+  √ #strRightBack
+  √ #succ
+  √ #surround
+  √ #swapCase
+  √ #titleize
+  √ #toBoolean
+  √ #toNumber
+  √ #toSentence
+  √ #toSentenceSerial
+  √ #trim
+  √ #truncate
+  √ #underscored
+  √ #unescapeHTML
+  √ #unquote
+  √ #vsprintf
+  √ #words
+  √ #wrap
+
+  80 passing (60ms)
+
+
+> underscore.string@3.3.4 coverage C:\Users\Hernan\Desktop\Tesis Pruebas\underscore.string-master
+> istanbul cover ./node_modules/mocha/bin/_mocha  -- --report=lcov --ui=qunit tests
+
+
+
+  √ #camelize
+  √ #capitalize
+  √ #chars
+  √ #chop
+  √ #classify
+  √ #clean
+  √ #cleanDiacritics
+  √ #count
+  √ #dasherize
+  √ #decapitalize
+  √ #dedent
+  √ #endsWith
+  √ #escapeHTML
+  √ #escapeRegExp
+  √ #exports
+  √ #humanize
+  √ #include
+  √ #insert
+  √ #isBlank
+  √ #join
+  √ #levenshtein
+  √ #levenshtein non-latin
+  √ #lines
+  √ #lpad
+  √ #lrpad
+  √ #ltrim
+  √ #map
+  √ #naturalCmp
+  √ #naturalSort
+  √ #numberFormat
+  √ #pad
+  √ #pred
+  √ #prune
+  √ #quote
+  √ #repeat
+  √ #replaceAll
+  √ #reverse
+  √ #rpad
+  √ #rtrim
+  √ #slugify
+  √ #splice
+  √ #sprintf
+  √ provides standalone functions via the s global
+  √ has standalone chaining
+  √ chaining supports tapping
+  √ tap breaks the chain if the return value is not a string
+  √ chain objects are immutable
+  √ methods returning non-string values stops the chain
+  √ prototype methods are available in the chain
+  √ PROTOTYPE: toUpperCase
+  √ PROTOTYPE: toLowerCase
+  √ PROTOTYPE: split
+  √ PROTOTYPE: replace
+  √ PROTOTYPE: slice
+  √ PROTOTYPE: substring
+  √ PROTOTYPE: substring
+  √ PROTOTYPE: concat
+  √ PROTOTYPE: can combine methods
+  √ #startsWith
+  √ #stripTags
+  √ #strLeft
+  √ #strLeftBack
+  √ #strRight
+  √ #strRightBack
+  √ #succ
+  √ #surround
+  √ #swapCase
+  √ #titleize
+  √ #toBoolean
+  √ #toNumber
+  √ #toSentence
+  √ #toSentenceSerial
+  √ #trim
+  √ #truncate
+  √ #underscored
+  √ #unescapeHTML
+  √ #unquote
+  √ #vsprintf
+  √ #words
+  √ #wrap
+
+  80 passing (60ms)
+
+
+=============================== Coverage summary ===============================
+Statements   : 99.32% ( 583/587 )
+Branches     : 97.51% ( 235/241 )
+Functions    : 100% ( 81/81 )
+Lines        : 99.46% ( 549/552 )
+================================================================================

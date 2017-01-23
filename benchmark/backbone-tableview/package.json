@@ -1,0 +1,55 @@
+{
+  "name": "backbone-tableview",
+  "version": "1.0.5",
+  "description": "A backbone.js table view with built in lifecycle management for child elements",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mbrevda/backbone-tableview.git"
+  },
+  "keywords": [
+    "backbone",
+    "child",
+    "childview",
+    "children",
+    "collection",
+    "table",
+    "tables",
+    "tableview"
+  ],
+  "author": "mbrevda@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbrevda/backbone-tableview/issues"
+  },
+  "homepage": "https://github.com/mbrevda/backbone-tableview",
+  "dependencies": {
+    "backbone": "^1",
+    "backbone-collectionview": "^0",
+    "backbone-kinview": "^0",
+    "underscore": "^1"
+  },
+  "devDependencies": {
+    "browserify": "^11",
+    "cssclass": "^1.1.0",
+    "gulp": "^3",
+    "gulp-coverage": "^0.3.27",
+    "gulp-if": "^1.2.4",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^2",
+    "gulp-util": "^3.0.1",
+    "jquery": "^2.1.4",
+    "jsdom": "^6",
+    "minimist": "^1.1.0",
+    "mocha": "^2",
+    "should": "^7",
+    "through2": "^2",
+    "vinyl-source-stream": "^1.0.0"
+  }
+}
