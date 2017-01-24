@@ -51,12 +51,12 @@ In this sample, 7 out of 9 developers agreed that UFFs are a problem in JS devel
 All the developers that recognized UFFs as a problem, also expressed great interest in a tool that could help them to address this problem during the build process. At last, the developers of *unified* and *pixijs* had concerns regarding the completeness of the tests used in the UFF detection. In practice, it is often difficult to have 100% coverage on all versions of the application. Along this line, they shared our concern that an insufficient coverage of parts of the source code could generate false positives when using our approach.
 
 All the issues can be readed in the following links:
--https://github.com/chartjs/Chart.js/issues/2772#issuecomment-226116032
--https://github.com/mapbox/geojsonhint/issues/60#issuecomment-269017912
--https://github.com/wooorm/unified/issues/19#event-904273616
--https://github.com/pixijs/pixi.js/issues/3506#issuecomment-269036396
--https://github.com/nolanlawson/transform-pouch/issues/39#issuecomment-269036684
--https://github.com/josdejong/mathjs/issues/766#issuecomment-269076910
--https://github.com/Workfront/workfront-api/issues/17#issuecomment-269078567
--https://github.com/bendrucker/angular-countdown/issues/5#event-904306148
--https://github.com/prettymuchbryce/easystarjs/issues/45#issuecomment-269795766
+- https://github.com/chartjs/Chart.js/issues/2772#issuecomment-226116032
+- https://github.com/mapbox/geojsonhint/issues/60#issuecomment-269017912
+- https://github.com/wooorm/unified/issues/19#event-904273616
+- https://github.com/pixijs/pixi.js/issues/3506#issuecomment-269036396
+- https://github.com/nolanlawson/transform-pouch/issues/39#issuecomment-269036684
+- https://github.com/josdejong/mathjs/issues/766#issuecomment-269076910
+- https://github.com/Workfront/workfront-api/issues/17#issuecomment-269078567
+- https://github.com/bendrucker/angular-countdown/issues/5#event-904306148
+- https://github.com/prettymuchbryce/easystarjs/issues/45#issuecomment-269795766
