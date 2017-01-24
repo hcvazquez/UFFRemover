@@ -17,7 +17,7 @@ Finally, "Results data.cvs" also contains the results of our approach. When inst
 ### What is the percentage of UFFs in js applications? 
 The percentages of UFFs in JS applications is in the range 14.69%-47.17%. Some of the applications are outliers such as *teoria* and *virtual-dom* that only report a 1.7% of UFFs. After manually analyzing their source code we found that the low percentage of UFFs is due to the fact that both applications depend on very few functions (*teoria* has in its bundle only 11 functions that belongs to dependencies and *virtual-dom* has only 8 functions). Moreover, we tested for a correlation between the percentage of functions in the bundle belonging to dependencies and the percentage of UFFs using the Pearson's correlation and we obtained a value of 0.91. Thus, the percentage of UFFs is directly correlated with the percentage of functions of depending libraries.  The greater the percentage of such functions in the bundle,  the greater the percentages of UFFs. This result seems to imply that the use of external libraries in JS applications increments the unused code, justifying the need of removing UFFs.
 
-### How much can an application be reduced, if its \uffs are removed with our approach?
+### How much can an application be reduced, if its UFFs are removed with our approach?
 The applications are reduced in a media of 18% after applying our approach. "Results data.cvs" shows the results of our experiment. The  7,021 UFFs  were removed or emptied by our approach. Specifically, 30.5% of the UFFs (=2,142) are completely removed while the bodies of 69.5% of them (=4,879) are now empty. This procedure allows us to remove a total of 81,370 lines of code from the bundles. This corresponds to 94.34% of the source code identified as UFFs.
 Some applications are above this range, such as the case of *Messy* that was reduced in a 66.17% while its percentage of UFFs was only 33.77%.  After carefully analyzing the bundle of *Messy* we found that the the reduction was due to the fact that the UFFs removed were, in general, long functions. Moreover, many of these functions are related with Chinese and Japanese character encoding that in some cases can take more bytes than regular characters. Also, to understand the relationship between the percentage of UFFs and the reduction in the minified bundle after removing them, we ran a Pearson's correlation test. We found that there exist a strong correlation of 0.86 between these factors. Thus, the greater the percentages of UFFs, the largest the bundle reductions. 
 
@@ -25,3 +25,38 @@ In order to assure that our removal strategy does not affect the behavior of the
 
 If the optimized application is intended to be used by third-party applications, those third-party applications could use some functions defined in a dependency of the optimized application. Along this line, the goal of our second step of the validation process is to analyze if third-party applications do not change their behavior after replacing the original application by the application optimized by our approach. This validation is challenging because for each optimized application we need to find several third-party applications that use the same version of the optimized application. Moreover, the third-party applications must have a high test coverage.  For this reason, we conducted this validation with 5  applications. "3party results.csv" shows the applications and the third-party applications that use them. After replacing the original library code with the optimized one we did not obtain errors on the tests.
 However, an exception occurred when executing *unexpected-mitm* to test the reductions in *Messy*. The problem was that *Messy* uses the *underscore* library, thus, when analyzing *Messy* our approach removed UFFs from *underscore*. At the same time, *unexpected-mitm* also uses the *underscore* library. Therefore, some UFFs in *Messy* are not UFFs in *unexpected-mitm* and as a result an error occurred. However, what we want to prove is that *Messy* does not use those functions during its execution in the context of a library that depends on it. In this way we separate the underscore library during the test, using an optimized version  for messy and one without optimization for *unexpected-mitm*. Consequently, the tests are passing, showing that *Messy* does not use these functions in the context of *unexpected-mitm*.
+
+##Feedback from the Developers
+
+We submitted our optimized version of the application bundles to the developers responsible for those projects. We received responses from 9 of them (*chart.js, geojsonhint, unified, pixi.js, transform-pouch, mathjs, workfront-api, angular-countdown, * and *easystarjs*). We chose to open an issue in the github repository so that any of the developers can reply. Our questionnaire model is as follows (Example for mathjs, https://github.com/josdejong/mathjs/issues/766)
+
+>My name is Hernan; with a group of colleagues we are conducting a research about unused code present in dependencies of JavaScript projects. We call this functions, UFF (Unused foreign functions). We found that in most projects there exist a great amount of UFF that are being included in the final bundle.
+
+>In the case of mathjs (v 3.5.1) our tools detected approximately 72 unused function in the dependencies. Removing those functions, the size of mathjs bundled could be reduced at least 2% (All tests passed). I replaced the bundled in several projects that use mathjs as loess, dn2a, dext and pullquoter. I’m attaching the reduced version of your project.
+math(optimized).js
+
+>I’ll be very grateful if you can answer me the following questions:
+-Did you were aware of the existence of these unused functions in your projects?
+-Do you think that this is a problem?
+-Do you think that can be useful a tool for deal with this kind of problem?
+
+>Thanks in advance.
+
+>Cheers,
+
+All bundles (original and optimized) can be found in the OPTIMIZATION folder of the respective project (Example for messy, https://github.com/icpc17/UFFOptimizer/tree/master/benchmark/messy/OPTIMIZATION).
+
+###How about the developers feedback?
+In this sample, 7 out of 9 developers agreed that UFFs are a problem in JS development. The other 2 considered that the reductions proposed for their applications were small to consider UFFs as a serious problem (*geojsonhint* 7.05% and *unified* 9.45%). An interesting case was that of *mathjs*, in which the reduction was one of the smallest ones *1.57%* but the developers recognized that the UFFs problem could be more serious than what our approach reported for the application. They think that while the tests of *mathjs* use 98% of the functions in their dependencies, a typical application that uses *mathjs*, uses a much smaller percentage of the dependent libraries.
+All the developers that recognized UFFs as a problem, also expressed great interest in a tool that could help them to address this problem during the build process. At last, the developers of *unified* and *pixijs* had concerns regarding the completeness of the tests used in the UFF detection. In practice, it is often difficult to have 100% coverage on all versions of the application. Along this line, they shared our concern that an insufficient coverage of parts of the source code could generate false positives when using our approach.
+
+All the issues can be readed in the following links:
+https://github.com/chartjs/Chart.js/issues/2772#issuecomment-226116032
+https://github.com/mapbox/geojsonhint/issues/60#issuecomment-269017912
+https://github.com/wooorm/unified/issues/19#event-904273616
+https://github.com/pixijs/pixi.js/issues/3506#issuecomment-269036396
+https://github.com/nolanlawson/transform-pouch/issues/39#issuecomment-269036684
+https://github.com/josdejong/mathjs/issues/766#issuecomment-269076910
+https://github.com/Workfront/workfront-api/issues/17#issuecomment-269078567
+https://github.com/bendrucker/angular-countdown/issues/5#event-904306148
+https://github.com/prettymuchbryce/easystarjs/issues/45#issuecomment-269795766
