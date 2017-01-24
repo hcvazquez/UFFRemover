@@ -1,0 +1,26 @@
+,,
+test coverage,Dependents,messy
+"93,03%",unexpected-messy,√
+100%,unexpected-http,√
+"89,65%",unexpected-mitm,√
+,,
+test coverage,Dependents,mathjs
+91%,loess,√
+74%,dn2a,√
+"92,41%",dext,√
+85%,pullquoter,√
+,,
+test coverage,Dependents,transform-pouch
+100%,crypto-pouch,√
+"81,48%",pouch-box,√
+,,
+test coverage,Dependents,escope
+"85,71%",derequire,√
+100%,eslint,√
+"95,77%",fancyscript,√
+100%,isogrammify,√
+,,
+test coverage,Dependents,escodegen
+100%,browjadify,√
+100%,espower,√
+100%,esreflect,√
