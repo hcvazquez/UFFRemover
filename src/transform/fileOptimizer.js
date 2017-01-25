@@ -14,7 +14,7 @@ var fs = require('fs');
 
 var desInstrumentFile = function (file) {
     var desInstrumentedCode = "";
-    console.log("Reading file "+file);
+   // console.log("Reading file "+file);
     fs.readFile(file, 'utf8', function (err, data) {
         if (err) {
             return console.log("ERROR reading file " + file);

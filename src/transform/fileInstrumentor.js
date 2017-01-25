@@ -8,7 +8,7 @@ module.exports = function (file) {
 
     if (file.endsWith('.js') && path.isInstrumentable(file) && file.indexOf("es-optimizer")===-1) {
         var fs = require('fs');
-        console.log("Reading file "+file);
+       // console.log("Reading file "+file);
         fs.readFile(file, 'utf8', function (err, data) {
             if (err) {
                 return console.log("ERROR reading durring instrumentation in " + file);

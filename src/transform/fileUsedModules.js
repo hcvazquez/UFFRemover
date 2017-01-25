@@ -25,6 +25,7 @@ module.exports = function (file) {
             if (err) {
                 return console.log("ERROR reading " + file);
             }
+            console.log("library module: "+file)
             module_stats["library_files"]++;
             analyzer.library_analyze(file, data, module_stats);
 
@@ -35,12 +36,13 @@ module.exports = function (file) {
                         if (chunk[i] == 10) module_stats["loc"]++;
                 })
                 .on('end', function() {
-                    console.log(module_stats);
+                   // console.log(module_stats);
                 });
         });
 
     }else{
         if (file.endsWith('.js')&& file.indexOf("es-optimizer")===-1) {
+        	console.log("program module: "+file);
             module_stats["program_files"]++;
         }
     }
