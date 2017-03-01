@@ -57,7 +57,7 @@ For Example:
 
 ### Instrument the required modules
 
-To instrument the required modules of the application you can execute the  following command:
+To instrument the required modules of the application you can execute the following command:
 
 	node [UFFO_path]/UFFOptimizer instrument [main file]
 	
