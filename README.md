@@ -1,3 +1,4 @@
+![UFFO Image](https://k61.kn3.net/8/1/5/0/D/5/AA3.jpg)
 # UFFOptimizer
 
 UFFOptimizer is a slimming JavaScript application tool for identifier and remover of unused foreign functions (UFF). 
