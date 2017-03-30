@@ -43,11 +43,16 @@ module.exports.getReader = function(){
 }
 
 module.exports.get_start_instrumentation = function(node,file){
-	return "console.log(\""+PROFILING_LABEL+startInstrumentationLine(node,file)+PROFILING_LABEL+"\");";
+	var idKey = startInstrumentationLine(node,file);
+	return "if(consoleLogArray.indexOf(\""+idKey+"\")=== -1){" +
+				"consoleLogArray.push(\""+idKey+"\");" +
+				"console.log(\""+PROFILING_LABEL+idKey+PROFILING_LABEL+"\");" +
+			"}";
+	//return "console.log(\""+PROFILING_LABEL+startInstrumentationLine(node,file)+PROFILING_LABEL+"\");";
 }
 
 module.exports.get_end_instrumentation = function(node,file){
-	return "console.log(\""+PROFILING_LABEL+endInstrumentationLine(node,file)+PROFILING_LABEL+"\");";
+	return "console.log(\""+PROFILING_LABEL+startInstrumentationLine(node,file)+PROFILING_LABEL+"\");";
 }
 
 module.exports.isRegistered = function(line){
