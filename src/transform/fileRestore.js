@@ -1,9 +1,7 @@
 "use strict";
 
 var through = require('through2')
-var instrumentation = require("../model/instrumentation.js");
 var path = require("../model/utilpath.js");
-var instrumentor = require("../task/instrumentor.js");
 
 module.exports = function (file) {
 

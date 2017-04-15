@@ -132,6 +132,10 @@ module.exports.optimize_file = function (mainFile) {
     return require("./fileOptimizer.js").optimizeFile(mainFile);
 };
 
+module.exports.desinstrument_file = function (mainFile) {
+    return require("./fileOptimizer.js").desinstrumentFile(mainFile);
+};
+
 module.exports.restore = function (mainFile) {
     return _browserify({
         entries: [ mainFile ],

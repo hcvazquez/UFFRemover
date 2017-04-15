@@ -1,11 +1,10 @@
 "use strict";
 
 var through = require('through2')
-var instrumentation = require("../model/instrumentation.js");
 var path = require("../model/utilpath.js");
-var instrumentor = require("../task/instrumentor.js");
 var register = require("../model/register.js");
 var fs = require('fs');
+var instrumentor = require("../task/instrumentor.js");
 
 /*(function () {
     register.loadRegister('profiling.txt');
