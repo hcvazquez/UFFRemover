@@ -97,11 +97,11 @@ module.exports.desinstrumentFile = function (file) {
     if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
         if (register.isLoaded()) {
             //console.log("Sync");
-            desInstrumentFile2(file);
+            desInstrumentFile(file);
         } else {
             register.getReader().on('close', function () {
                 // console.log("ASync");
-                desInstrumentFile2(file);
+                desInstrumentFile(file);
             })
         }
     }

@@ -49,10 +49,15 @@ module.exports.desinstrumentFunctions = function (file,code) {
 	var ast = parser.parseWithLOC(code);
 	ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
 	var builder = _astTypes.builders;
+	var consoleArray = true;
 //	  console.log(register.getReg());
 //	register.printRegister();
 	var instrumentedAST = _estraverse.replace(ast, {
 		enter: function enter(node) {
+			if(consoleArray){
+				consoleArray = false;
+				node.body.shift();
+			}
 			if (_astTypes.namedTypes.FunctionDeclaration.check(node) /*&& register.isRegistered(node,file)*/) {
 				//register.unregisterNode(node,file);
 				if(_astTypes.namedTypes.IfStatement.check(node.body.body[0]) &&
@@ -89,10 +94,15 @@ module.exports.desinstrumentAndOptimizeFunctions = function (file,code) {
 	var ast = parser.parseWithLOC(code);
 	ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
 	var builder = _astTypes.builders;
+	var consoleArray = true;
 //	  console.log(register.getReg());
 //	register.printRegister();
 	var instrumentedAST = _estraverse.replace(ast, {
 		enter: function enter(node) {
+			if(consoleArray){
+				consoleArray = false;
+				node.body.shift();
+			}
 			if (_astTypes.namedTypes.FunctionDeclaration.check(node) /*&& register.isRegistered(node,file)*/) {
 				//register.unregisterNode(node,file);
 					if(_astTypes.namedTypes.IfStatement.check(node.body.body[0]) &&
