@@ -19,7 +19,7 @@ var module_stats = {
 
 module.exports = function (file) {
 
-    if (file.endsWith('.js')&& path.isInstrumentable(file)&& file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js')&& path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
         fs.readFile(file, 'utf8', function (err, data) {
             if (err) {
@@ -41,7 +41,7 @@ module.exports = function (file) {
         });
 
     }else{
-        if (file.endsWith('.js')&& file.indexOf("es-optimizer")===-1) {
+        if (file.endsWith('.js')&& file.indexOf("UFFOptimizer")===-1) {
         	console.log("program module: "+file);
             module_stats["program_files"]++;
         }

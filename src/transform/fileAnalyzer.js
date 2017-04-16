@@ -19,7 +19,7 @@ var library_stats = {
 
 module.exports = function (file) {
 
-    if (file.endsWith('.js')&& path.isInstrumentable(file)&& file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js')&& path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
         fs.readFile(file, 'utf8', function (err, data) {
             if (err) {
@@ -40,7 +40,7 @@ module.exports = function (file) {
         });
 
     }else{
-        if (file.endsWith('.js')&& file.indexOf("es-optimizer")===-1) {
+        if (file.endsWith('.js')&& file.indexOf("UFFOptimizer")===-1) {
             library_stats["program_files"]++;
         }
     }
@@ -110,7 +110,7 @@ function analyzeDir(dir) {
         }
         files.map(function(fileRel) {
             var file = require('path').resolve(dir, fileRel);
-            if(file.indexOf("es-optimizer")===-1 && file.indexOf("magicpen-media\\node_modules")===-1) {
+            if(file.indexOf("UFFOptimizer")===-1 && file.indexOf("magicpen-media\\node_modules")===-1) {
                 require('fs').stat(file, function (err, stat) {
                     if (stat && stat.isDirectory() && !fileRel.startsWith(".")) {
                         analyzeDir(file);

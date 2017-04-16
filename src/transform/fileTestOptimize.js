@@ -6,9 +6,9 @@ var instrumentor = require("../task/instrumentor.js");
 
 module.exports = function (file) {
 
-    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
-        console.log("node ../es-optimizer optimize_file  "+"\""+file+"\"");
+        console.log("node ../UFFOptimizer optimize_file  "+"\""+file+"\"");
     }
 
     return through();

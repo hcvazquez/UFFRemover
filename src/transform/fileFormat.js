@@ -6,7 +6,7 @@ var instrumentor = require("../task/instrumentor.js");
 
 module.exports = function (file) {
 
-    if (file.endsWith('.js') && path.isInstrumentable(file) && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && path.isInstrumentable(file) && file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
         console.log("Reading file "+file);
         fs.readFile(file, 'utf8', function (err, data) {
@@ -31,7 +31,7 @@ module.exports = function (file) {
 
 module.exports.formatFile = function (file) {
     //console.log("Reading file "+file);
-    if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
         console.log("Reading file "+file);
         fs.readFile(file, 'utf8', function (err, data) {
@@ -98,7 +98,7 @@ function formatDir(dir) {
         }
         files.map(function(fileRel) {
             var file = require('path').resolve(dir, fileRel);
-            if(file.indexOf("es-optimizer")===-1) {
+            if(file.indexOf("UFFOptimizer")===-1) {
                 require('fs').stat(file, function (err, stat) {
                     if (stat && stat.isDirectory() && !fileRel.startsWith(".")) {
                         formatDir(file);
@@ -118,7 +118,7 @@ function formatDir(dir) {
 }
 
 function fileFormat(file){
-    if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
         console.log("Reading file "+file);
         fs.readFile(file, 'utf8', function (err, data) {

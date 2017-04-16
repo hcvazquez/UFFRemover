@@ -6,7 +6,7 @@ var instrumentor = require("../task/instrumentor.js");
 
 module.exports = function (file) {
 
-    if (file.endsWith('.js') && path.isInstrumentable(file) && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && path.isInstrumentable(file) && file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
        // console.log("Reading file "+file);
         fs.readFile(file, 'utf8', function (err, data) {
@@ -31,7 +31,7 @@ module.exports = function (file) {
 
 module.exports.instrumentFile = function (file) {
     //console.log("Reading file "+file);
-    if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
         console.log("Reading file "+file);
         fs.readFile(file, 'utf8', function (err, data) {

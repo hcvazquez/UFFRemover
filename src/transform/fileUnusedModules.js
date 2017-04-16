@@ -27,7 +27,7 @@ var module_stats = {
 
 module.exports = function (file) {
 
-    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         var fs = require('fs');
         modules.push(file);
         var pakage = path.getFullPackageName(file,"\\");
@@ -64,7 +64,7 @@ function findUnusedModules(dir){
         }
         files.map(function (fileRel) {
             var file = require('path').resolve(dir, fileRel);
-            if (file.indexOf("es-optimizer") === -1 && file.indexOf("magicpen-media\\node_modules") === -1) {
+            if (file.indexOf("UFFOptimizer") === -1 && file.indexOf("magicpen-media\\node_modules") === -1) {
                 require('fs').stat(file, function (err, stat) {
                     if (stat && stat.isDirectory() && !fileRel.startsWith(".")) {
                         findUnusedModules(file);

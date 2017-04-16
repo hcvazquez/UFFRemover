@@ -62,7 +62,7 @@ var optimizeFile = function (file) {
 }
 
 module.exports = function (file) {
-    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {
             //console.log("Sync");
             desInstrumentAndOptimizeFile(file);
@@ -78,7 +78,7 @@ module.exports = function (file) {
 
 module.exports.optimizeFile = function (file) {
     //console.log(file);
-    if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {
             //console.log("Sync");
             optimizeFile(file);
@@ -94,7 +94,7 @@ module.exports.optimizeFile = function (file) {
 
 module.exports.optimizeInstrumentedFile = function (file) {
     //console.log(file);
-    if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {
             //console.log("Sync");
             desInstrumentAndOptimizeFile(file);
@@ -111,7 +111,7 @@ module.exports.optimizeInstrumentedFile = function (file) {
 
 module.exports.desinstrumentFile = function (file) {
     //console.log(file);
-    if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {
             //console.log("Sync");
             desInstrumentFile(file);

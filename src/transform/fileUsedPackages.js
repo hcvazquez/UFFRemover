@@ -8,7 +8,7 @@ var packagesNames = [];
 
 module.exports = function (file) {
 
-    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("es-optimizer")===-1) {
+    if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         var pakage = path.getFullPackageName(file,"\\");
         var name = path.getFileName(pakage,"\\");
         if(packages.indexOf(pakage)===-1){
