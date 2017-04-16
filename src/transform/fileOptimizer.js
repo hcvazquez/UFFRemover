@@ -51,7 +51,7 @@ var optimizeFile = function (file) {
         if (err) {
             return console.log("ERROR reading file " + file);
         }
-        optimizedCode = instrumentor.desinstrumentAndOptimizeFunctions(file, data, register);
+        optimizedCode = instrumentor.optimizeFunctions(file, data, register);
         fs.writeFile(file, optimizedCode, function (err) {
             if (err) {
                 return console.log("ERROR desinstrumented " + file);
@@ -91,6 +91,23 @@ module.exports.optimizeFile = function (file) {
     }
     return through();
 }
+
+module.exports.optimizeInstrumentedFile = function (file) {
+    //console.log(file);
+    if (file.endsWith('.js') && file.indexOf("es-optimizer")===-1) {
+        if (register.isLoaded()) {
+            //console.log("Sync");
+            desInstrumentAndOptimizeFile(file);
+        } else {
+            register.getReader().on('close', function () {
+                // console.log("ASync");
+                desInstrumentAndOptimizeFile(file);
+            })
+        }
+    }
+    return through();
+}
+
 
 module.exports.desinstrumentFile = function (file) {
     //console.log(file);

@@ -157,7 +157,6 @@ module.exports.optimizeFunctions = function (file,code) {
 		enter: function enter(node) {
 			if (_astTypes.namedTypes.FunctionDeclaration.check(node) /*&& register.isRegistered(node,file)*/) {
 				//register.unregisterNode(node,file);
-				console.log(register.get_end_instrumentation(node,file));
 				if(register.isRegistered(register.get_end_instrumentation(node,file))){
 					console.log("This node is registered: "+node);
 					//node.body.body.shift();
