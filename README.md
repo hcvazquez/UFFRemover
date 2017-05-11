@@ -85,6 +85,8 @@ Once those steps were executed you are already to executing the UFFOptimizer com
 
 ## Other Commands and parameters
 
+You can use UFFOptimizer in node applications indicating the main file of the application.
+
 ### Identify the required modules
 
 To identify the required modules of the application you can execute the following command:
