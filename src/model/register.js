@@ -26,6 +26,10 @@ var getKeyForNode = function(node,file){
 	return startInstrumentationLine(node, file);
 }
 
+module.exports.getKeyForFunction = function(node,file){
+	return "function "+getFunctionName(node)+" from "+parser.trimFileName(file)+" in line "+node.loc.start.line;
+}
+
 module.exports.getProfLabel = function(){
 	return PROFILING_LABEL;
 }

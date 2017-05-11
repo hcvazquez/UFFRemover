@@ -109,10 +109,10 @@ module.exports.desinstrumentAndOptimizeFunctions = function (file,code) {
 						_astTypes.namedTypes.CallExpression.check(node.body.body[0].test.left) &&
 						node.body.body[0].test.left.callee.object.name === "consoleLogArray"){
 					if(register.isRegistered(node.body.body[0].consequent.body[1].expression.arguments[0].value)){
-						console.log("This node is registered: "+node);
+						console.log("This node is registered: "+register.getKeyForFunction(node,file));
 						node.body.body.shift();
 					}else{
-						console.log("This node is an UFF: "+node);
+						console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
 						node.body.body=[];
 					}
 				}
@@ -126,10 +126,10 @@ module.exports.desinstrumentAndOptimizeFunctions = function (file,code) {
 					_astTypes.namedTypes.CallExpression.check(node.body.body[0].test.left) &&
 					node.body.body[0].test.left.callee.object.name === "consoleLogArray"){
 					if(register.isRegistered(node.body.body[0].consequent.body[1].expression.arguments[0].value)){
-						console.log("This node is registered: "+node);
+						console.log("This node is registered: "+register.getKeyForFunction(node,file));
 						node.body.body.shift();
 					}else{
-						console.log("This node is an UFF: "+node);
+						console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
 						node.body.body=[];
 					}
 				}
@@ -158,10 +158,10 @@ module.exports.optimizeFunctions = function (file,code) {
 			if (_astTypes.namedTypes.FunctionDeclaration.check(node) /*&& register.isRegistered(node,file)*/) {
 				//register.unregisterNode(node,file);
 				if(register.isRegistered(register.get_end_instrumentation(node,file))){
-					console.log("This node is registered: "+node);
+					console.log("This node is registered: "+register.getKeyForFunction(node,file));
 					//node.body.body.shift();
 				}else{
-					console.log("This node is an UFF: "+node);
+					console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
 					node.body.body=[];
 				}
 				//node.body.body.shift();
@@ -172,10 +172,10 @@ module.exports.optimizeFunctions = function (file,code) {
 				//node.body.body.shift();
 				//console.log(register.get_end_instrumentation(node,file));
 				if(register.isRegistered(register.get_end_instrumentation(node,file))){
-					console.log("This node is registered: "+node);
+					console.log("This node is registered: "+register.getKeyForFunction(node,file));
 					//		node.body.body.shift();
 				}else{
-					console.log("This node is an UFF: "+node);
+					console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
 					node.body.body=[];
 				}
 				return node;

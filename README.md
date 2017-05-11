@@ -19,7 +19,46 @@ Node.js can be download from (https://nodejs.org)
 
     npm install
 
-## Usage
+## Regular Use
+
+UFFOptimizer is designed to optimize single bundle files for use in the browser. The tool need to be used inside the project to optimize:
+
+	cd projectToOptimize
+	node [UFFO_path]/UFFOptimizer [command] [parameters]
+
+### Instrument a file
+
+To instrument a file you can execute the following command:
+
+	node [UFFO_path]/UFFOptimizer instrument_file [file_to_instrument]
+
+For Example:
+
+	node ../../UFFOptimizer instrument dist/bundle.js
+
+### Generate profiling info
+
+You need to run your application so that the instrumented file generates the profiling information. You need to save this information in a file, eg "profiling.txt".
+
+### Optimize a file
+
+You can optimize you original file as follow.
+
+	node [UFFO_path]/UFFOptimizer optimize [file_to_optimize] [profiling_file]
+
+For Example:
+
+	node ../../UFFOptimizer optimize dist/bundle.js profiling.txt
+
+Or, you can optimize your file directly from the instrumented file.
+
+	node [UFFO_path]/UFFOptimizer optimize_instrumented_file [file_to_optimize] [profiling_file]
+
+For Example:
+
+	node ../../UFFOptimizer optimize_instrumented_file dist/bundle.js profiling.txt
+
+## Use to test benchmark applications
 
 To use the UFFOptimizer on a project, first need to ensure that the following steps were performed:
 
@@ -44,7 +83,7 @@ Once those steps were executed you are already to executing the UFFOptimizer com
 	node [UFFO_path]/UFFOptimizer [command] [parameters]
 	
 
-## Commands and parameters
+## Other Commands and parameters
 
 ### Identify the required modules
 

@@ -6,10 +6,20 @@ var register = require("../model/register.js");
 var fs = require('fs');
 var instrumentor = require("../task/instrumentor.js");
 
-(function () {
-    register.loadRegister('profiling.txt');
-    register.printRegister();
-})();
+
+/**
+ * Private functions
+ *
+ * @param profilingFile
+ */
+
+var loadRegister = function (profilingFile) {
+    if(profilingFile!==null  && profilingFile!==undefined && profilingFile.length >0){
+        register.loadRegister(profilingFile);
+    }else{
+        register.loadRegister('profiling.txt');
+    }
+};
 
 var desInstrumentAndOptimizeFile = function (file) {
     var desInstrumentedCode = "";
@@ -76,15 +86,22 @@ module.exports = function (file) {
     return through();
 }
 
-module.exports.optimizeFile = function (file) {
+
+/**
+ * Public Functions
+ *
+ * @param file
+ * @param profilingFile
+ * @returns {*}
+ */
+module.exports.optimizeFile = function (file, profilingFile) {
     //console.log(file);
+    loadRegister(profilingFile);
     if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {
-            //console.log("Sync");
             optimizeFile(file);
         } else {
             register.getReader().on('close', function () {
-               // console.log("ASync");
                 optimizeFile(file);
             })
         }
@@ -92,8 +109,9 @@ module.exports.optimizeFile = function (file) {
     return through();
 }
 
-module.exports.optimizeInstrumentedFile = function (file) {
+module.exports.optimizeInstrumentedFile = function (file, profilingFile) {
     //console.log(file);
+    loadRegister(profilingFile);
     if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {
             //console.log("Sync");

@@ -120,7 +120,7 @@ module.exports.desinstrument = function (mainFile) {
 };
 
 
-module.exports.optimize = function (mainFile) {
+module.exports.optimize = function (mainFile,profilingFile) {
     return _browserify({
         entries: [ mainFile ],
         transform: [[require("./fileOptimizer.js"), {'global': true}]]
@@ -128,16 +128,16 @@ module.exports.optimize = function (mainFile) {
         .bundle()
 };
 
-module.exports.optimize_file = function (mainFile) {
-    return require("./fileOptimizer.js").optimizeFile(mainFile);
+module.exports.optimize_file = function (mainFile,profilingFile) {
+    return require("./fileOptimizer.js").optimizeFile(mainFile,profilingFile);
 };
 
 module.exports.desinstrument_file = function (mainFile) {
     return require("./fileOptimizer.js").desinstrumentFile(mainFile);
 };
 
-module.exports.optimize_instrumented_file = function (mainFile) {
-    return require("./fileOptimizer.js").optimizeInstrumentedFile(mainFile);
+module.exports.optimize_instrumented_file = function (mainFile,profilingFile) {
+    return require("./fileOptimizer.js").optimizeInstrumentedFile(mainFile,profilingFile);
 };
 
 module.exports.restore = function (mainFile) {
