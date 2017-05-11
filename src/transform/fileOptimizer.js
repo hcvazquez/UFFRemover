@@ -72,6 +72,7 @@ var optimizeFile = function (file) {
 }
 
 module.exports = function (file) {
+    loadRegister(profilingFile);
     if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {
             //console.log("Sync");
