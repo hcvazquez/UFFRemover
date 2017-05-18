@@ -54,33 +54,42 @@ module.exports.instrumentFile = function (file) {
     return through();
 }
 
-module.exports.instrumentFolder = function (dir) {
-        console.log("Reading dir "+dir);
-        var fs = require('fs');
-        fs.readdir(dir, function(err, files){
-            if (err) {
-                return console.log("ERROR reading dir " + dir);
-            }
-            files.map(function(file) {
-                        console.log("Reading file "+file);
-                        file = dir+"//"+file
-                        fs.readFile(file, 'utf8', function (err, data) {
-                            if (err) {
-                                return console.log("ERROR reading durring instrumentation in " + file);
-                            }
+function inst_folder (dir){
+    console.log("Reading dir: "+dir);
+    var fs = require('fs');
+    fs.readdir(dir, function(err, files){
+        if (err) {
+            return console.log("ERROR reading dir: " + dir);
+        }
+        files.map(function(file) {
+            console.log("Reading file: "+file);
+            file = dir+"//"+file;
+            if(file.endsWith(".js")) {
+                fs.readFile(file, 'utf8', function (err, data) {
+                    if (err) {
+                        return console.log("ERROR reading during instrumentation in " + file);
+                    }
 
-                            var instrumentedCode = instrumentor.instrumentFunctions(file, data);
+                    var instrumentedCode = instrumentor.instrumentFunctions(file, data);
 
-                            fs.writeFile(file, instrumentedCode, function (err) {
-                                if (err) {
-                                    return console.log("ERROR instrumented " + file);
-                                }
-                                console.log("file instrumented: " + file);
-                            });
-                        });
-
+                    fs.writeFile(file, instrumentedCode, function (err) {
+                        if (err) {
+                            return console.log("ERROR instrumented " + file);
+                        }
+                        console.log("file instrumented: " + file);
+                    });
                 });
+            }
+            else {
+                inst_folder(file);
+            }
         });
+    });
 
+    return through();
+}
+
+module.exports.instrumentFolder = function (dir) {
+    inst_folder (dir);
     return through();
 }

@@ -132,6 +132,18 @@ module.exports.optimize_file = function (mainFile) {
     return require("./fileOptimizer.js").optimizeFile(mainFile);
 };
 
+module.exports.optimize_file_min = function (mainFile) {
+    return require("./fileOptimizer.js").optimizeFileMinified(mainFile);
+};
+
+module.exports.add_body = function (mainFile) {
+    return require("./fileOptimizer.js").addBody(mainFile);
+};
+
+module.exports.optimize_folder = function (mainFile) {
+    return require("./fileOptimizer.js").optimizeFolder(mainFile);
+};
+
 module.exports.desinstrument_file = function (mainFile) {
     return require("./fileOptimizer.js").desinstrumentFile(mainFile);
 };
