@@ -128,6 +128,22 @@ module.exports.optimize = function (mainFile,profilingFile) {
         .bundle()
 };
 
+module.exports.optimize4node = function (mainFile,profilingFile) {
+    return _browserify({
+        entries: [ mainFile ],
+        transform: [[require("./fileOptimizer4Node.js"), {'global': true}]]
+    })
+        .bundle()
+};
+
+module.exports.uffs = function (mainFile,profilingFile) {
+    return _browserify({
+        entries: [ mainFile ],
+        transform: [[require("./fileUFFLogger.js"), {'global': true}]]
+    })
+        .bundle()
+};
+
 module.exports.optimize_file = function (mainFile,profilingFile) {
     return require("./fileOptimizer.js").optimizeFile(mainFile,profilingFile);
 };
@@ -138,6 +154,10 @@ module.exports.desinstrument_file = function (mainFile) {
 
 module.exports.optimize_instrumented_file = function (mainFile,profilingFile) {
     return require("./fileOptimizer.js").optimizeInstrumentedFile(mainFile,profilingFile);
+};
+
+module.exports.optimize_instrumented_file_node = function (mainFile,profilingFile) {
+    return require("./fileOptimizer4Node.js").optimize4node(mainFile,profilingFile);
 };
 
 module.exports.restore = function (mainFile) {

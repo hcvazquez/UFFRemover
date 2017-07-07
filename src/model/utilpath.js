@@ -13,6 +13,12 @@ module.exports.getProjectName = function(file,delimiter){
 	return project;
 }
 
+module.exports.getProjectPath = function(file,delimiter){
+	var split = file.split("node_modules");
+	var i = 0;
+	return split[0];
+}
+
 module.exports.getPackageName = function(file,delimiter){
 	var split = file.split(delimiter);
 	var i = split.length-1;
