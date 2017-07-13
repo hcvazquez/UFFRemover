@@ -57,10 +57,9 @@ module.exports.parse = function(code, file) {
 module.exports.parseWithLOC = function(code, file) {
 	var result = '';
 	try {
-		/*console.log(file);
-        if(file===undefined){
-            console.log(code);
-        }*/
+		console.log(file);
+		console.log(code);
+
 		result = _esprima.parse(trimHashbang(code),{loc: true, range: true, tokens: true, comment:true});
 	} catch (e) {
 		throw new Error('parse error in ' + file);

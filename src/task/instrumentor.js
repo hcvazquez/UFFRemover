@@ -294,8 +294,14 @@ module.exports.desInstrumentAndOptimizeForNode = function (file,code) {
 						node.body.body.shift();
 						var hash = getHash(register.getKeyForFunction(node,file));
 						var uffdir = getuffdir(file,hash);
-						createUffFile(file,getHash(register.getKeyForFunction(node,file))+".uff",_escodegen.generate(node.body,{comment: true}));
-						var hookcode = "eval(\"require("+uffdir+"/"+hash+")\")";
+						//createUffFile(file,getHash(register.getKeyForFunction(node,file))+".uff",_escodegen.generate(node.body,{comment: true}));
+						//var hookcode = "eval(\"require("+uffdir+"/"+hash+")\")";
+						//var hookcode = "console.log(\""+register.getKeyForFunction(node,file)+"\");eval(\"require("+uffdir+"/"+hash+")\")";
+						//var hookcode = "console.log(\""+register.getKeyForFunction(node,file)+"\");";
+						var hookcode = "console.log(\""+register.getKeyForFunction(node,file)+"\");" +
+							"eval('(function(){'+require('fs').readFileSync('"+uffdir+"/"+hash+".uff"+"').toString()+'})()')";
+						node.body.body=[];
+						//console.log(hookcode);
 						node.body.body.unshift(parser.parseWithLOC(parser.trimFileName(hookcode),file));
 					}
 				}
@@ -316,8 +322,14 @@ module.exports.desInstrumentAndOptimizeForNode = function (file,code) {
 						node.body.body.shift();
 						var hash = getHash(register.getKeyForFunction(node,file));
 						var uffdir = getuffdir(file,hash);
-						createUffFile(file,getHash(register.getKeyForFunction(node,file))+".uff",_escodegen.generate(node.body,{comment: true}));
-						var hookcode = "eval(\"require("+uffdir+"/"+hash+")\")";
+						//createUffFile(file,getHash(register.getKeyForFunction(node,file))+".uff",_escodegen.generate(node.body,{comment: true}));
+						//var hookcode = "eval(\"require("+uffdir+"/"+hash+")\")";
+						//var hookcode = "console.log(\""+register.getKeyForFunction(node,file)+"\");eval(\"require("+uffdir+"/"+hash+")\")";
+						//var hookcode = "console.log(\""+register.getKeyForFunction(node,file)+"\");";
+						var hookcode = "console.log(\""+register.getKeyForFunction(node,file)+"\");" +
+							"eval(\"(function(){\"+require(\"fs\").readFileSync(\""+uffdir+"/"+hash+".uff"+"\").toString()+\"})()\");";
+						node.body.body=[];
+						//console.log(hookcode);
 						node.body.body.unshift(parser.parseWithLOC(parser.trimFileName(hookcode),file));
 					}
 				}
@@ -327,7 +339,13 @@ module.exports.desInstrumentAndOptimizeForNode = function (file,code) {
 		}
 	});
 
-	return _escodegen.generate(instrumentedAST,{comment: true});
+	return addReturnStatement(_escodegen.generate(instrumentedAST,{comment: true}));
+}
+
+var addReturnStatement = function(code){
+	code = code.replaceAll("eval('(function(){' + require('fs').readFileSync(","return eval('(function(){' + require('fs').readFileSync(");
+	console.log(code);
+	return code;
 }
 
 var getHash = function(string) {
