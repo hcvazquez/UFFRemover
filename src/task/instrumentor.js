@@ -10,6 +10,8 @@ var parser = require('./parser.js');
 
 var register = require("../model/register.js");
 
+var fs = require('fs');
+
 module.exports.instrumentFunctions = function (file,code) {
 	  var ast = parser.parseWithLOC(code,file);
 	  ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
@@ -342,9 +344,114 @@ module.exports.desInstrumentAndOptimizeForNode = function (file,code) {
 	return addReturnStatement(_escodegen.generate(instrumentedAST,{comment: true}));
 }
 
+module.exports.optimizeForBrowser = function (file,code) {
+    var ast = parser.parseWithLOC(code,file);
+    ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
+    var cont = 1;
+    var instrumentedAST = _estraverse.replace(ast, {
+        enter: function enter(node) {
+            if (_astTypes.namedTypes.FunctionDeclaration.check(node) || _astTypes.namedTypes.FunctionExpression.check(node)) {
+                //register.unregisterNode(node,file);
+                    if(register.isRegistered(register.get_end_instrumentation(node,file))){
+                        console.log("This node is registered: "+register.getKeyForFunction(node,file));
+                       // node.body.body.shift();
+                    }else{
+                        console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
+                       // node.body.body.shift();
+                        //var hash = getHash(register.getKeyForFunction(node,file));
+                        var functionFileName = "$"+cont+".js";
+
+                        var hasReturn = hasReturnStatement(node.body);
+                        var hasThis = hasThisExpression(node.body);
+						console.log("hasReturn:"+hasReturn+" hasThis:"+hasThis);
+                        var functionCode = getFunctionCode(node.body,hasThis);
+                        createFile(functionFileName, functionCode);
+                        var hookcode = getHookCode(functionFileName,hasReturn,hasThis);
+                        node.body.body=[];
+                        //console.log(hookcode);
+                        node.body.body.unshift(parser.parseWithLOC(parser.trimFileName(hookcode),file));
+                        cont++;
+                    }
+                //node.body.body.shift();
+                return node;
+            }
+        }
+    });
+    return  checkReturnStatement(_escodegen.generate(instrumentedAST,{comment: true}));
+}
+
+var checkReturnStatement = function(code){
+    code = code.replaceAll("return$eval","return eval");
+    return code;
+}
+var checkThatStatement = function(code){
+    code = code.replaceAll("that;.","that.");
+    return code;
+}
+
+var getFunctionCode = function(body){
+    var old_code = _escodegen.generate(body,{comment: true});
+    var new_code = "(function(){"+old_code+"})();";
+    return new_code;
+}
+
+var getHookCode = function(functionFileName,hasReturn,hasThis){
+    var uffdir = "uff";
+    var hookcode = "eval($dl('"+uffdir+"/"+functionFileName+"'));";
+    if(hasReturn){
+    	hookcode = "return$"+hookcode;
+	}
+	if(hasThis){
+        hookcode = "var $that = this;\r\n"+hookcode;
+	}
+    return hookcode;
+}
+
+var createFile = function(functionFileName,functionCode){
+	var uffdir = "uff";
+    if (!fs.existsSync(uffdir)){
+        console.log("Creating dir: "+uffdir);
+        fs.mkdirSync(uffdir);
+    }
+    fs.writeFile(uffdir+"/"+functionFileName, checkThatStatement(functionCode), 'utf8', (err) => {
+        if (err) throw err;
+    });
+}
+
+var hasReturnStatement = function(root){
+    var returnStatement = false;
+    var instrumentedAST = _estraverse.replace(root, {
+        enter: function enter(node) {
+            if (_astTypes.namedTypes.FunctionDeclaration.check(node) || _astTypes.namedTypes.FunctionExpression.check(node)) {
+                return _estraverse.VisitorOption.Skip;
+            }
+            if (_astTypes.namedTypes.ReturnStatement.check(node)) {
+                returnStatement = true;
+                return _estraverse.VisitorOption.Break;
+            }
+        }
+    });
+    return returnStatement;
+}
+
+var hasThisExpression = function(root){
+    var thisExpression = false;
+    var instrumentedAST = _estraverse.replace(root, {
+        enter: function enter(node) {
+            if (_astTypes.namedTypes.FunctionDeclaration.check(node) || _astTypes.namedTypes.FunctionExpression.check(node)) {
+                return _estraverse.VisitorOption.Skip;
+            }
+            if (_astTypes.namedTypes.ThisExpression.check(node)) {
+                thisExpression = true;
+                return parser.parseWithLOC("$that");
+            }
+        }
+    });
+    return thisExpression;
+}
+
 var addReturnStatement = function(code){
 	code = code.replaceAll("eval('(function(){' + require('fs').readFileSync(","return eval('(function(){' + require('fs').readFileSync(");
-	console.log(code);
 	return code;
 }
 
@@ -361,7 +468,6 @@ var getHash = function(string) {
 
 
 var createUffFile = function(filepath,file,content){
-	var fs = require('fs');
 	var uffdir = getuffdir(filepath,file);
 	if (!fs.existsSync(uffdir)){
 		console.log("Creating dir: "+uffdir);

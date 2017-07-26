@@ -40,8 +40,7 @@ module.exports.instrumentFile = function (file) {
             }
 
             var instrumentedCode = instrumentor.instrumentFunctions(file, data);
-
-            fs.writeFile(file, instrumentedCode, function (err) {
+            fs.writeFile(file.replace(".js","")+"-instrumented.js", instrumentedCode, function (err) {
                 if (err) {
                     return console.log("ERROR instrumented " + file);
                 }

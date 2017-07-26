@@ -13,6 +13,19 @@ var instrumentor = require("../task/instrumentor.js");
  * @param profilingFile
  */
 
+var dl = "function $dl(scriptURL){"+
+    "if(!window.uffs){"+
+        "window.uffs = {};"+
+    "}"+
+    "if(!window.uffs[scriptURL]){"+
+        "var xhReq = new XMLHttpRequest();"+
+        "xhReq.open(\"GET\", scriptURL, false);"+
+        "xhReq.send(null);"+
+        " window.uffs[scriptURL] = xhReq.responseText;"+
+    "}"+
+    "return window.uffs[scriptURL];"+
+"}";
+
 var loadRegister = function (profilingFile) {
     if(profilingFile!==null  && profilingFile!==undefined && profilingFile.length >0){
         register.loadRegister(profilingFile);
@@ -71,6 +84,23 @@ var optimizeFile = function (file) {
     });
 }
 
+var optimizeFileBrowser = function (file) {
+    var optimizedCode = "";
+    fs.readFile(file, 'utf8', function (err, data) {
+        if (err) {
+            return console.log("ERROR reading file " + file);
+        }
+        optimizedCode = instrumentor.optimizeForBrowser(file, data, register);
+        fs.writeFile(file.replace(".js","")+"-optimized.js", dl+"\r\n"+optimizedCode, function (err) {
+            if (err) {
+                return console.log("ERROR desinstrumented " + file);
+            }
+            console.log("File optimized: "+file);
+            console.log("File generated: "+file.replace(".js","")+"-optimized.js");
+        });
+    });
+}
+
 module.exports = function (file) {
     loadRegister(profilingFile);
     if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
@@ -104,6 +134,21 @@ module.exports.optimizeFile = function (file, profilingFile) {
         } else {
             register.getReader().on('close', function () {
                 optimizeFile(file);
+            })
+        }
+    }
+    return through();
+}
+
+module.exports.optimizeFileBrowser = function (file, profilingFile) {
+    //console.log(file);
+    loadRegister(profilingFile);
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
+        if (register.isLoaded()) {
+            optimizeFileBrowser(file);
+        } else {
+            register.getReader().on('close', function () {
+                optimizeFileBrowser(file);
             })
         }
     }

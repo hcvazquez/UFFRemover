@@ -4,7 +4,8 @@
   "main": "index.js",
   "version": "0.0.0",
   "engines": {
-    "node": ">=0.4.0"},
+    "node": ">=0.4.0"
+  },
   "bin": {
     "es-optimizer": "./index.js"
   },
@@ -47,5 +48,4 @@
     "test": "node lib/index.js",
     "instrument": "node ./src/transform/transform.js"
   }
-    
 }
