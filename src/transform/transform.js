@@ -152,6 +152,10 @@ module.exports.optimize_file_browser = function (mainFile,profilingFile) {
     return require("./fileOptimizer.js").optimizeFileBrowser(mainFile,profilingFile);
 };
 
+module.exports.log_file_uffs = function (mainFile,profilingFile) {
+    return require("./fileOptimizer.js").logUFFListFromFile(mainFile,profilingFile);
+};
+
 module.exports.desinstrument_file = function (mainFile) {
     return require("./fileOptimizer.js").desinstrumentFile(mainFile);
 };

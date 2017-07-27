@@ -101,6 +101,17 @@ var optimizeFileBrowser = function (file) {
     });
 }
 
+var logUFFList = function (file) {
+    var optimizedCode = "";
+    console.log("$$$ UFF LIST $$$");
+    fs.readFile(file, 'utf8', function (err, data) {
+        if (err) {
+            return console.log("ERROR reading file " + file);
+        }
+        instrumentor.logUFFList(file, data, register);
+    });
+}
+
 module.exports = function (file) {
     loadRegister(profilingFile);
     if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
@@ -149,6 +160,21 @@ module.exports.optimizeFileBrowser = function (file, profilingFile) {
         } else {
             register.getReader().on('close', function () {
                 optimizeFileBrowser(file);
+            })
+        }
+    }
+    return through();
+}
+
+module.exports.logUFFListFromFile = function (file, profilingFile) {
+    //console.log(file);
+    loadRegister(profilingFile);
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
+        if (register.isLoaded()) {
+            logUFFList(file);
+        } else {
+            register.getReader().on('close', function () {
+                logUFFList(file);
             })
         }
     }
