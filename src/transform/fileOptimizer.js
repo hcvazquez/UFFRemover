@@ -112,7 +112,7 @@ var logUFFList = function (file) {
     });
 }
 
-module.exports = function (file) {
+module.exports = function (file,profilingFile) {
     loadRegister(profilingFile);
     if (file.endsWith('.js') && path.isInstrumentable(file)&& file.indexOf("UFFOptimizer")===-1) {
         if (register.isLoaded()) {

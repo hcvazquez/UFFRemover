@@ -72,10 +72,10 @@ module.exports.desinstrumentAndOptimizeFunctions = function (file,code) {
 						_astTypes.namedTypes.CallExpression.check(node.body.body[0].test.left) &&
 						node.body.body[0].test.left.callee.object.name === "consoleLogArray"){
 					if(register.isRegistered(node.body.body[0].consequent.body[1].expression.arguments[0].value)){
-						console.log("This node is registered: "+register.getKeyForFunction(node,file));
+						console.log("This node is registered: "+register.getKeyFromLine(node.body.body[0].consequent.body[1].expression.arguments[0].value));
 						node.body.body.shift();
 					}else{
-						console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
+						console.log("This node is an UFF: "+register.getKeyFromLine(node.body.body[0].consequent.body[1].expression.arguments[0].value));
 						node.body.body=[];
 					}
 				}
@@ -234,7 +234,7 @@ var checkReturnStatement = function(code){
     return code;
 }
 var checkThatStatement = function(code){
-    code = code.replaceAll("that;.","that.");
+    code = code.replaceAll("that;","that");
     return code;
 }
 

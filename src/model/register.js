@@ -61,10 +61,15 @@ module.exports.get_end_instrumentation = function(node,file){
 
 module.exports.isRegistered = function(line){
     //console.log("looking for "+getKeyFromLine(line));
-	if(reg.indexOf(getKeyFromLine(line)) > -1){
+	var key = getKeyFromLine(line);
+	if(reg.indexOf(key) > -1 || reg.indexOf(key.replaceAll("\\","/")) > -1 || reg.indexOf(key.replaceAll("/","\\")) ){
 		return true;
 	}
 	return false;
+}
+
+module.exports.getKeyFromLine = function(line){
+    return getKeyFromLine(line);
 }
 
 var getKeyFromLine = function(line){
