@@ -34,29 +34,23 @@ To instrument a file you can execute the following command:
 
 For Example:
 
-	node ../../UFFOptimizer instrument dist/bundle.js
+	node ../../UFFOptimizer instrument_file bundle.js
 
 ### Generate profiling info
 
-You need to run your application so that the instrumented file generates the profiling information. You need to save this information in a file, eg "profiling.txt".
+You need to run your application so that the instrumented file generates the profiling information. You need to save this information in a file, eg "profiling.txt". If you are in browser context, you need to open the developer console and save the console output into a file.
 
 ### Optimize a file
 
+> Note: The file to optimize need to be the original file.
+
 You can optimize you original file as follow.
 
-	node [UFFO_path]/UFFOptimizer optimize [file_to_optimize] [profiling_file]
+	node [UFFO_path]/UFFOptimizer optimize_file_browser [file_to_optimize] [profiling_file]
 
 For Example:
 
-	node ../../UFFOptimizer optimize dist/bundle.js profiling.txt
-
-Or, you can optimize your file directly from the instrumented file.
-
-	node [UFFO_path]/UFFOptimizer optimize_instrumented_file [file_to_optimize] [profiling_file]
-
-For Example:
-
-	node ../../UFFOptimizer optimize_instrumented_file dist/bundle.js profiling.txt
+	node ../../UFFOptimizer optimize_file_browser bundle.js profiling.txt
 
 ## Use to test benchmark applications
 
