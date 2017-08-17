@@ -62,7 +62,7 @@ module.exports.get_end_instrumentation = function(node,file){
 module.exports.isRegistered = function(line){
     //console.log("looking for "+getKeyFromLine(line));
 	var key = getKeyFromLine(line);
-	if(reg.indexOf(key) > -1 || reg.indexOf(key.replaceAll("\\","/")) > -1 || reg.indexOf(key.replaceAll("/","\\")) ){
+	if(reg.indexOf(key) > -1 || reg.indexOf(key.replaceAll("\\","/")) > -1 || reg.indexOf(key.replaceAll("/","\\"))>-1 ){
 		return true;
 	}
 	return false;
