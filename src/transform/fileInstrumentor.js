@@ -83,3 +83,27 @@ module.exports.instrumentFolder = function (dir) {
 
     return through();
 }
+
+module.exports.instrumentFileGA = function (file) {
+    //console.log("Reading file "+file);
+    if (file.endsWith('.js') && file.indexOf("UFFOptimizer")===-1) {
+        var fs = require('fs');
+        console.log("Reading file "+file);
+        fs.readFile(file, 'utf8', function (err, data) {
+            if (err) {
+                return console.log("ERROR reading durring instrumentation in " + file);
+            }
+
+            var instrumentedCode = instrumentor.instrumentFunctionsGA(file, data);
+            fs.writeFile(file.replace(".js","")+"-instrumented-ga.js", instrumentedCode, function (err) {
+                if (err) {
+                    return console.log("ERROR instrumented " + file);
+                }
+                console.log("file instrumented: " + file);
+            });
+        });
+
+    }
+
+    return through();
+}

@@ -335,3 +335,25 @@ var getuffdir = function(filepath,file){
 	var dir = path.getProjectPath(filepath,"/");
 	return dir+"_uff";
 }
+
+module.exports.instrumentFunctionsGA = function (file,code) {
+	var ast = parser.parseWithLOC(code,file);
+	ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
+	var consoleArray = true;
+	var instrumentedAST = _estraverse.replace(ast, {
+		enter: function enter(node) {
+			if(consoleArray){
+				consoleArray = false;
+				node.body.unshift(parser.parseWithLOC("if(!window.gaLogArray){window.gaLogArray = [];}"));
+			}
+		},
+		leave: function enter(node) {
+			if (_astTypes.namedTypes.FunctionDeclaration.check(node)||_astTypes.namedTypes.FunctionExpression.check(node)) {
+				node.body.body.unshift(parser.parseWithLOC(register.get_ga_instrumentation(node,file)));
+				return node;
+			}
+		}
+	});
+
+	return _escodegen.generate(instrumentedAST,{/*format: {preserveBlankLines: true},*/comment: true/*, sourceCode:code*/});
+}
