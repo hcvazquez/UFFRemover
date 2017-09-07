@@ -24,13 +24,13 @@ Node.js can be download from (https://nodejs.org)
 UFFOptimizer is designed to optimize single bundle files for use in the browser. The tool need to be used inside the project to optimize:
 
 	cd projectToOptimize
-	node [UFFO_path]/UFFOptimizer [command] [parameters]
+	node [UFFO_path] [command] [parameters]
 
 ### Instrument a file
 
 To instrument a file you can execute the following command:
 
-	node [UFFO_path]/UFFOptimizer instrument_file [file_to_instrument]
+	node [UFFO_path] instrument_file [file_to_instrument]
 
 For Example:
 
@@ -46,7 +46,7 @@ You need to run your application so that the instrumented file generates the pro
 
 You can optimize you original file as follow.
 
-	node [UFFO_path]/UFFOptimizer optimize_file_browser [file_to_optimize] [profiling_file]
+	node [UFFO_path] optimize_file_browser [file_to_optimize] [profiling_file]
 
 For Example:
 
@@ -74,7 +74,7 @@ To use the UFFOptimizer on a project, first need to ensure that the following st
 Once those steps were executed you are already to executing the UFFOptimizer commands. The tool need to be used inside the project to optimize:
 		
 	cd projectToOptimize
-	node [UFFO_path]/UFFOptimizer [command] [parameters]
+	node [UFFO_path] [command] [parameters]
 	
 
 ## Other Commands and parameters
@@ -85,7 +85,7 @@ You can use UFFOptimizer in node applications indicating the main file of the ap
 
 To identify the required modules of the application you can execute the following command:
 
-	node [UFFO_path]/UFFOptimizer modules [main file]
+	node [UFFO_path] modules [main file]
 	
 For Example:
 
@@ -95,7 +95,7 @@ For Example:
 
 To instrument the required modules of the application you can execute the following command:
 
-	node [UFFO_path]/UFFOptimizer instrument [main file]
+	node [UFFO_path] instrument [main file]
 	
 For Example:
 
@@ -105,7 +105,7 @@ For Example:
 
 To optimize the required modules of the application you need to run the tests of the project to optimize with the required modules instrumented. Additionally you need to put the results of the tests in a file named "profiling.txt" in the root of the project to optimize. Then you can execute the following command:
 
-	node [UFFO_path]/UFFOptimizer optimize [main file]
+	node [UFFO_path] optimize [main file]
 	
 For Example:
 
