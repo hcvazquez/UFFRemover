@@ -19,28 +19,39 @@ Node.js can be download from (https://nodejs.org)
 
     npm install
 
-## Regular Use
+## Optimization
 
-UFFOptimizer is designed to optimize single bundle files for use in the browser. The tool need to be used inside the project to optimize:
+1- Go to the project to optimize:
 
-	cd projectToOptimize
-	node [UFFO_path] [command] [parameters]
+For Example:
+	cd [project_to_optimize_path]
 
-### Instrument a file
-
-To instrument a file you can execute the following command:
+2- Instrument your js code using the following command:
 
 	node [UFFO_path] instrument_file [file_to_instrument]
 
 For Example:
-
 	node ../../UFFOptimizer instrument_file bundle.js
 
-### Generate profiling info
+> This step generates a new file, e.g. bundle-instrumented.js
 
-You need to run your application so that the instrumented file generates the profiling information. You need to save this information in a file, eg "profiling.txt". If you are in browser context, you need to open the developer console and save the console output into a file.
+4- Generate profiling info
 
-### Optimize a file
+To generate profiling info you need to replace in your site the original file with the instrumented file.
+
+For Example:
+Replace
+	<script src="bundle.js"></script> 
+With
+	<script src="bundle-instrumented.js"></script> 
+	
+5- You need to run your application and use it. This step print profiling information about used functions into the browser console.
+
+
+6- Save the browser console output into a file.
+
+
+7- Now, you can use the registered information to optimize your application.
 
 > Note: The file to optimize need to be the original file.
 
@@ -52,66 +63,14 @@ For Example:
 
 	node ../../UFFOptimizer optimize_file_browser bundle.js profiling.txt
 
-## Use to test benchmark applications
+> This step generates a new file, e.g. bundle-optimized.js
 
-To use the UFFOptimizer on a project, first need to ensure that the following steps were performed:
+8- Test your optimization file
 
-1- Download the source code of the project to optimize from the benchmark or try another project. 
-	
-2- Install the dependencies
+To test your optimized file you need to replace in your site the original file with the optimized file.
 
-	cd projectToOptimize
-	npm install
-
-2- Create the bundle from the source code using the instructions and tools provided by the application. For example:
-
-	npm run-script bundle
-
-3- Run all the tests and verify that they all pass. For example:
-
-	npm run-script test
-
-Once those steps were executed you are already to executing the UFFOptimizer commands. The tool need to be used inside the project to optimize:
-		
-	cd projectToOptimize
-	node [UFFO_path] [command] [parameters]
-	
-
-## Other Commands and parameters
-
-You can use UFFOptimizer in node applications indicating the main file of the application.
-
-### Identify the required modules
-
-To identify the required modules of the application you can execute the following command:
-
-	node [UFFO_path] modules [main file]
-	
 For Example:
-
-	node ../../UFFOptimizer modules src/index.js
-
-### Instrument the required modules
-
-To instrument the required modules of the application you can execute the following command:
-
-	node [UFFO_path] instrument [main file]
-	
-For Example:
-
-	node ../../UFFOptimizer instrument src/index.js
-	
-### Optimize the required modules
-
-To optimize the required modules of the application you need to run the tests of the project to optimize with the required modules instrumented. Additionally you need to put the results of the tests in a file named "profiling.txt" in the root of the project to optimize. Then you can execute the following command:
-
-	node [UFFO_path] optimize [main file]
-	
-For Example:
-
-	npm run-script test > profiling.txt
-	node ../../UFFOptimizer optimize src/index.js
-
-To obtain the optimized bundle you need to generate it again:
-
-	npm run-script bundle
+Replace
+	<script src="bundle.js"></script> 
+With
+	<script src="bundle-optimized.js"></script> 
