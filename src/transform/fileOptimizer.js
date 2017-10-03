@@ -112,6 +112,7 @@ var optimizeFileBrowser = function (file) {
         }
         originalCode = data;
         optimizedCode = instrumentor.optimizeForBrowser(file, data, file_stats);
+
         var newFileName = file.replace(".js","")+"-optimized.js";
 
         fs.writeFileSync(newFileName, dl+"\r\n"+optimizedCode, function (err) {
@@ -141,6 +142,9 @@ var optimizeFileBrowser = function (file) {
         /**
          * size metrics
          */
+        file_stats['number_of_functions'] = instrumentor.countFunctions(file, originalCode);
+        file_stats['number_of_functions_optimized'] = file_stats['number_of_functions_optimized']+(instrumentor.countFunctions(file, originalCode)-instrumentor.countFunctions(file, optimizedCode));
+
         var stats = require('fs').statSync(file);
         file_stats['original_size'] = stats['size'];
         stats = require('fs').statSync(origMinFileName);

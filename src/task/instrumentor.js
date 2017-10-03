@@ -207,17 +207,17 @@ module.exports.optimizeForBrowser = function (file,code,file_stats) {
     var instrumentedAST = _estraverse.replace(ast, {
         enter: function enter(node) {
             if (_astTypes.namedTypes.FunctionDeclaration.check(node) || _astTypes.namedTypes.FunctionExpression.check(node)) {
-					file_stats['number_of_functions']++;
                     if(register.isRegistered(register.get_end_instrumentation(node,file))){
                         console.log("This node is registered: "+register.getKeyForFunction(node,file));
                     }else{
 						file_stats['number_of_functions_optimized']++;
                         console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
 						var timestamp = Date.now();
-                        var functionFileName = "$"+getHash(file)+timestamp+".js"; //verificar que no pueda haber dos tiemstamp iguales
+
                         var hasReturn = hasReturnStatement(node.body);
                         var hasThis = hasThisExpression(node.body);
                         var functionCode = getFunctionCode(node.body,hasThis);
+						var functionFileName = "$"+getHash(functionCode)+timestamp+".js"; //verificar que no pueda haber dos tiemstamp iguales y dos hash iguales
                         createFile(functionFileName, functionCode);
                         var hookcode = getHookCode(functionFileName,hasReturn,hasThis);
                         node.body.body=[];
@@ -231,6 +231,22 @@ module.exports.optimizeForBrowser = function (file,code,file_stats) {
     });
 
     return  checkReturnStatement(_escodegen.generate(instrumentedAST,{comment: true}));
+}
+
+module.exports.countFunctions = function (file,code) {
+	var ast = parser.parseWithLOC(code,file);
+	ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
+	var cont = 0;
+	var instrumentedAST = _estraverse.replace(ast, {
+		enter: function enter(node) {
+			if (_astTypes.namedTypes.FunctionDeclaration.check(node) || _astTypes.namedTypes.FunctionExpression.check(node)) {
+				cont++;
+				return node;
+			}
+		}
+	});
+
+	return cont;
 }
 
 var checkReturnStatement = function(code){
