@@ -73,6 +73,6 @@ To test your optimized file you need to replace in your site the original file w
 
 For Example:
 Replace
-	<script src="bundle.js"></script> 
+	***<script src="bundle.js"></script>***
 With
-	<script src="bundle-optimized.js"></script> 
+	***<script src="bundle-optimized.js"></script>***
