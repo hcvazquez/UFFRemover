@@ -7,15 +7,15 @@ UFFOptimizer is a slimming JavaScript application tool for identifier and remove
 
 UFFOptimizer is developed on Node.js execution environment (>= v6.1.0). The following steps are needed for run the tool:
 
-1- install Node.js environment  
+#### 1. install Node.js environment  
 Node.js can be download from (https://nodejs.org)
 
-2- Download the project from github:
+#### 2. Download the project from github:
 
     git clone git://github.com/icpc17/UFFOptimizer.git
     cd UFFOptimizer
 
-3- Install the project dependencies:
+#### 3. Install the project dependencies:
 
     npm install
 
