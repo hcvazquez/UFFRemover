@@ -21,12 +21,12 @@ Node.js can be download from (https://nodejs.org)
 
 ## Optimization
 
-### 1. Go to the project to optimize:
+#### 1. Go to the project to optimize
 
 For Example:
 	cd [project_to_optimize_path]
 
-2. Instrument your js code using the following command:
+#### 2. Instrument your js code using the following command
 
 	node [UFFO_path] instrument_file [file_to_instrument]
 
@@ -35,7 +35,7 @@ For Example:
 
 > This step generates a new file, e.g. bundle-instrumented.js
 
-4. Generate profiling info
+#### 3. Generate profiling info
 
 To generate profiling info you need to replace in your site the original file with the instrumented file.
 
@@ -45,13 +45,15 @@ Replace
 With
 	<script src="bundle-instrumented.js"></script> 
 	
-5. You need to run your application and use it. This step print profiling information about used functions into the browser console.
+#### 5. Use your application
 
+You need to run your application and use it. This step print profiling information about used functions into the browser console.
 
-6. Save the browser console output into a file.
+#### 6. Save the browser console output into a file
 
+For this step, you need to open the browser console and save the content into a file.
 
-7. Now, you can use the registered information to optimize your application.
+#### 7. Now, you can use the registered information to optimize your application
 
 > Note: The file to optimize need to be the original file.
 
@@ -65,7 +67,7 @@ For Example:
 
 > This step generates a new file, e.g. bundle-optimized.js
 
-8. Test your optimization file
+#### 8. Test your optimization file
 
 To test your optimized file you need to replace in your site the original file with the optimized file.
 
