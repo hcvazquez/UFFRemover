@@ -19,7 +19,8 @@
     "path-browserify": "~0.0.0",
     "browserify": "^13.0.0",
     "esprima": "^2.7.1",
-    "babelify": "^6.0.1"
+    "babelify": "^6.0.1",
+    "uglify-js": "*"
   },
   "devDependencies": {
     "babel": "^6.3.26",

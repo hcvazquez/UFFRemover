@@ -57,8 +57,9 @@ module.exports.get_start_instrumentation = function(node,file){
 
 module.exports.get_ga_instrumentation = function(node,file){
 	var idKey = getFunctionName(node)+" from "+parser.trimFileName(file)+" in "+node.loc.start.line;
-	return "if(window.gaLogArray.indexOf(\""+idKey+"\")=== -1){window.gaLogArray.push(\""+idKey+"\");ga(function(tracker) {ga('send', 'event', 'function call', '"+idKey+"', tracker.get('clientId'));});}";
+	return "window.$_gaEventSender('"+idKey+"');";
 }
+
 
 module.exports.get_end_instrumentation = function(node,file){
 	return "console.log(\""+PROFILING_LABEL+startInstrumentationLine(node,file)+PROFILING_LABEL+"\");";

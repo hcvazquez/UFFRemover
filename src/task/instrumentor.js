@@ -200,18 +200,21 @@ module.exports.desInstrumentAndOptimizeForNode = function (file,code) {
 	return addReturnStatement(_escodegen.generate(instrumentedAST,{comment: true}));
 }
 
-module.exports.optimizeForBrowser = function (file,code) {
+module.exports.optimizeForBrowser = function (file,code,file_stats) {
     var ast = parser.parseWithLOC(code,file);
     ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
     var cont = 1;
     var instrumentedAST = _estraverse.replace(ast, {
         enter: function enter(node) {
             if (_astTypes.namedTypes.FunctionDeclaration.check(node) || _astTypes.namedTypes.FunctionExpression.check(node)) {
+					file_stats['number_of_functions']++;
                     if(register.isRegistered(register.get_end_instrumentation(node,file))){
                         console.log("This node is registered: "+register.getKeyForFunction(node,file));
                     }else{
+						file_stats['number_of_functions_optimized']++;
                         console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
-                        var functionFileName = "$"+cont+".js";
+						var timestamp = Date.now();
+                        var functionFileName = "$"+getHash(file)+timestamp+".js"; //verificar que no pueda haber dos tiemstamp iguales
                         var hasReturn = hasReturnStatement(node.body);
                         var hasThis = hasThisExpression(node.body);
                         var functionCode = getFunctionCode(node.body,hasThis);
@@ -226,6 +229,7 @@ module.exports.optimizeForBrowser = function (file,code) {
             }
         }
     });
+
     return  checkReturnStatement(_escodegen.generate(instrumentedAST,{comment: true}));
 }
 
@@ -341,15 +345,10 @@ module.exports.instrumentFunctionsGA = function (file,code) {
 	ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
 	var consoleArray = true;
 	var instrumentedAST = _estraverse.replace(ast, {
-		enter: function enter(node) {
-			if(consoleArray){
-				consoleArray = false;
-				node.body.unshift(parser.parseWithLOC("if(!window.gaLogArray){window.gaLogArray = [];}"));
-			}
-		},
 		leave: function enter(node) {
 			if (_astTypes.namedTypes.FunctionDeclaration.check(node)||_astTypes.namedTypes.FunctionExpression.check(node)) {
 				node.body.body.unshift(parser.parseWithLOC(register.get_ga_instrumentation(node,file)));
+				//console.log(register.get_ga_instrumentation(node,file));
 				return node;
 			}
 		}

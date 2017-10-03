@@ -115,6 +115,10 @@ module.exports.instrument_folder = function (folder) {
     return require("./fileInstrumentor.js").instrumentFolder(folder);
 };
 
+module.exports.instrument_folder_ga = function (folder) {
+    return require("./fileInstrumentor.js").instrumentFolderGA(folder);
+};
+
 module.exports.desinstrument = function (mainFile) {
     return _browserify({
         entries: [ mainFile ],

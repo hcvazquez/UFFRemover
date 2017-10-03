@@ -6,6 +6,8 @@ var register = require("../model/register.js");
 var fs = require('fs');
 var instrumentor = require("../task/instrumentor.js");
 
+var uglifyJS = require('uglify-js');
+
 
 /**
  * Private functions
@@ -84,22 +86,73 @@ var optimizeFile = function (file) {
     });
 }
 
+
+/**
+ * Estadisticas de la optimizacion
+ */
+var file_stats = {
+    "name": "js file analysis",
+    "number_of_functions" : 0,
+    "original_size" : 0,
+    "original_min_size" : 0,
+    "optimized_min_size" : 0,
+    "number_of_functions_optimized" : 0,
+    "size_of_reduction" : 0
+};
+
 var optimizeFileBrowser = function (file) {
+
+    var originalCode = "";
     var optimizedCode = "";
+
     fs.readFile(file, 'utf8', function (err, data) {
         if (err) {
             return console.log("ERROR reading file " + file);
         }
-        optimizedCode = instrumentor.optimizeForBrowser(file, data, register);
-        fs.writeFile(file.replace(".js","")+"-optimized.js", dl+"\r\n"+optimizedCode, function (err) {
+        originalCode = data;
+        optimizedCode = instrumentor.optimizeForBrowser(file, data, file_stats);
+        var newFileName = file.replace(".js","")+"-optimized.js";
+
+        fs.writeFileSync(newFileName, dl+"\r\n"+optimizedCode, function (err) {
             if (err) {
                 return console.log("ERROR desinstrumented " + file);
             }
             console.log("File optimized: "+file);
             console.log("File generated: "+file.replace(".js","")+"-optimized.js");
-        });
+        })
+
+        var minifiedOriginal = uglifyJS.minify(originalCode);
+        var minifiedOptimized = uglifyJS.minify(dl+"\r\n"+optimizedCode);
+
+        var origMinFileName = file.replace(".js","")+"-min.js"
+        var optMinFileName = file.replace(".js","")+"-optimized-min.js"
+        fs.writeFileSync(origMinFileName,minifiedOriginal.code, function (err) {
+            if (err) {
+                return console.log("ERROR desinstrumented " + file);
+            }
+        })
+        fs.writeFileSync(optMinFileName,minifiedOptimized.code, function (err) {
+            if (err) {
+                return console.log("ERROR desinstrumented " + file);
+            }
+        })
+
+        /**
+         * size metrics
+         */
+        var stats = require('fs').statSync(file);
+        file_stats['original_size'] = stats['size'];
+        stats = require('fs').statSync(origMinFileName);
+        file_stats['original_min_size'] = stats['size'];
+        stats = require('fs').statSync(optMinFileName);
+        file_stats['optimized_min_size'] = stats['size'];
+        file_stats['size_of_reduction'] = file_stats['original_min_size'] - file_stats['optimized_min_size'];
+
+        console.log(file_stats);
+
     });
 }
+
 
 var logUFFList = function (file) {
     var optimizedCode = "";
@@ -136,6 +189,7 @@ module.exports = function (file,profilingFile) {
  * @param profilingFile
  * @returns {*}
  */
+
 module.exports.optimizeFile = function (file, profilingFile) {
     //console.log(file);
     loadRegister(profilingFile);
