@@ -5,7 +5,7 @@ UFFOptimizer is a slimming JavaScript application tool for identifier and remove
 
 ## Installation
 
-UFFOptimizer is developed on Node.js execution environment (v6.1.0). The following steps are needed for run the tool:
+UFFOptimizer is developed on Node.js execution environment (>= v6.1.0). The following steps are needed for run the tool:
 
 1- install Node.js environment  
 Node.js can be download from (https://nodejs.org)
