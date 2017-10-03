@@ -97,7 +97,8 @@ var file_stats = {
     "original_min_size" : 0,
     "optimized_min_size" : 0,
     "number_of_functions_optimized" : 0,
-    "size_of_reduction" : 0
+    "size_of_reduction" : 0,
+	"%_of_reduction" : 0
 };
 
 var optimizeFileBrowser = function (file) {
@@ -147,6 +148,7 @@ var optimizeFileBrowser = function (file) {
         stats = require('fs').statSync(optMinFileName);
         file_stats['optimized_min_size'] = stats['size'];
         file_stats['size_of_reduction'] = file_stats['original_min_size'] - file_stats['optimized_min_size'];
+		file_stats['%_of_reduction'] = ((file_stats['original_min_size'] - file_stats['optimized_min_size'])/file_stats['original_min_size'])*100;
 
         console.log(file_stats);
 
