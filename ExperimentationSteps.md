@@ -21,7 +21,7 @@ Node.js can be download from (https://nodejs.org)
 
 ## Optimization
 
-1. Go to the project to optimize:
+### 1. Go to the project to optimize:
 
 For Example:
 	cd [project_to_optimize_path]
