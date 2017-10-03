@@ -35,7 +35,7 @@ For Example:
 
 > This step generates a new file, e.g. bundle-instrumented.js
 
-#### 3. Generate profiling info
+#### 3. Replace original file with instrumented file
 
 To generate profiling info you need to replace in your site the original file with the instrumented file.
 
@@ -45,7 +45,7 @@ Replace
 With
 	<script src="bundle-instrumented.js"></script> 
 	
-#### 5. Use your application
+#### 5. Generate profiling info
 
 You need to run your application and use it. This step print profiling information about used functions into the browser console.
 
