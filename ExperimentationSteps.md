@@ -1,14 +1,14 @@
 ![UFFO Image](http://fs5.directupload.net/images/170302/d5zleuc5.png)
 # UFFOptimizer
 
-UFFOptimizer is a slimming JavaScript application tool for identifier and remover of unused foreign functions (UFF). 
+UFFOptimizer is a slimming JavaScript tool for identifying and removing unused foreign functions (UFF).
 
 ## Installation
 
-UFFOptimizer is developed on Node.js execution environment (>= v6.1.0). The following steps are needed for run the tool:
+UFFOptimizer is developed using Node.js execution environment (>= v6.1.0). The following steps are needed for running the tool:
 
-#### 1. install Node.js environment  
-Node.js can be download from (https://nodejs.org)
+#### 1. Install Node.js environment  
+Node.js can be downloaded from (https://nodejs.org)
 
 #### 2. Download the project from github
 
@@ -21,7 +21,7 @@ Node.js can be download from (https://nodejs.org)
 
 ## Optimization
 
-#### 1. Go to the project to optimize
+#### 1. Go to the path of the project to optimize
 
 For Example:
 	cd [project_to_optimize_path]
