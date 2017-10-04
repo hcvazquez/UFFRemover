@@ -115,30 +115,27 @@ var optimizeFileBrowser = function (file) {
 
         var newFileName = file.replace(".js","")+"-optimized.js";
 
-        fs.writeFileSync(newFileName, dl+"\r\n"+optimizedCode, function (err) {
-            if (err) {
-                return console.log("ERROR desinstrumented " + file);
-            }
-            console.log("File optimized: "+file);
-            console.log("File generated: "+file.replace(".js","")+"-optimized.js");
-        })
+        fs.writeFileSync(newFileName, dl+"\r\n"+optimizedCode);
+
+        console.log("");
+        console.log("**** Optimization ****");
+        console.log("File optimized: "+file);
+        console.log("Optimized file created: "+newFileName);
 
         var minifiedOriginal = uglifyJS.minify(originalCode);
         var minifiedOptimized = uglifyJS.minify(dl+"\r\n"+optimizedCode);
 
         var origMinFileName = file.replace(".js","")+"-min.js"
         var optMinFileName = file.replace(".js","")+"-optimized-min.js"
-        fs.writeFileSync(origMinFileName,minifiedOriginal.code, function (err) {
-            if (err) {
-                return console.log("ERROR desinstrumented " + file);
-            }
-        })
-        fs.writeFileSync(optMinFileName,minifiedOptimized.code, function (err) {
-            if (err) {
-                return console.log("ERROR desinstrumented " + file);
-            }
-        })
 
+        console.log("");
+        console.log("*** Minified Files ***");
+        fs.writeFileSync(origMinFileName,minifiedOriginal.code);
+        console.log("Original minified file created: "+origMinFileName);
+        fs.writeFileSync(optMinFileName,minifiedOptimized.code)
+        console.log("Optimized minified file created: "+optMinFileName);
+        console.log("");
+        console.log("*** Metrics***");
         /**
          * size metrics
          */
