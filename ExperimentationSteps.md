@@ -51,13 +51,13 @@ You need to run your application and use it. This step print profiling informati
 
 #### 6. Save the browser console output into a file
 
-For this step, you need to open the browser console and save the content into a file.
+For this step, you need to open the browser console and save the content into a txt file.
 
 #### 7. Now, you can use the registered information to optimize your application
 
 > Note: The file to optimize need to be the original file.
 
-You can optimize you original file as follow.
+You can optimize your original file as follow.
 
 	node [UFFO_path] optimize_file_browser [file_to_optimize] [profiling_file]
 
