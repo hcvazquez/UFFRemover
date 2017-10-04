@@ -55,7 +55,7 @@ For this step, you need to open the browser console and save the content into a 
 
 #### 7. Now, you can use the registered information to optimize your application
 
-> Note: The file to optimize need to be the original file.
+> Note: The file to optimize needs to be the original file.
 
 You can optimize you original file as follow.
 
