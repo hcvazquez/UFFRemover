@@ -29,7 +29,7 @@ module.exports.instrumentFunctions = function (file,code) {
 	    }
 	  });
 	
-	  return _escodegen.generate(instrumentedAST,{/*format: {preserveBlankLines: true},*/comment: true/*, sourceCode:code*/});
+	  return _escodegen.generate(instrumentedAST,{/*format: {preserveBlankLines: true},comment: true, sourceCode:code*/});
 }
 
 
@@ -204,14 +204,16 @@ module.exports.optimizeForBrowser = function (file,code,file_stats) {
     var ast = parser.parseWithLOC(code,file);
     ast  = _escodegen.attachComments(ast, ast.comments, ast.tokens);
     var cont = 1;
+	console.log("*** UFF List ***");
     var instrumentedAST = _estraverse.replace(ast, {
         enter: function enter(node) {
             if (_astTypes.namedTypes.FunctionDeclaration.check(node) || _astTypes.namedTypes.FunctionExpression.check(node)) {
                     if(register.isRegistered(register.get_end_instrumentation(node,file))){
-                        console.log("This node is registered: "+register.getKeyForFunction(node,file));
+                        //console.log("This node is registered: "+register.getKeyForFunction(node,file));
                     }else{
 						file_stats['number_of_functions_optimized']++;
-                        console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
+                        //console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
+						console.log(register.getKeyForFunction(node,file));
 						var timestamp = Date.now();
 
                         var hasReturn = hasReturnStatement(node.body);
@@ -229,8 +231,9 @@ module.exports.optimizeForBrowser = function (file,code,file_stats) {
             }
         }
     });
+	console.log("*** End UFF List ***");
 
-    return  checkReturnStatement(_escodegen.generate(instrumentedAST,{comment: true}));
+    return  checkReturnStatement(_escodegen.generate(instrumentedAST/*,{comment: true}*/));
 }
 
 module.exports.countFunctions = function (file,code) {

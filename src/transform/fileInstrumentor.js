@@ -40,11 +40,12 @@ module.exports.instrumentFile = function (file) {
             }
 
             var instrumentedCode = instrumentor.instrumentFunctions(file, data);
-            fs.writeFile(file.replace(".js","")+"-instrumented.js", instrumentedCode, function (err) {
+            var newName = file.replace(".js","")+"-instrumented.js";
+            fs.writeFile(newName, instrumentedCode, function (err) {
                 if (err) {
                     return console.log("ERROR instrumented " + file);
                 }
-                console.log("file instrumented: " + file);
+                console.log("file instrumented: " + newName);
             });
         });
 
