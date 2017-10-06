@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="math.js | basic usage">
+    <title>math.js | basic usage</title>
+    <script src="math.js"></script>
+</head>
+<body>
+<script>
+    // basic usage of math.js
+    //
+    // website:  http://mathjs.org
+    // docs:     http://mathjs.org/docs
+    // examples: http://mathjs.org/examples
+
+    // functions and constants
+    print(math.round(math.e, 3));            // 2.718
+    print(math.atan2(3, -3) / math.pi);      // 0.75
+    print(math.log(10000, 10));              // 4
+    print(math.sqrt(-4));                    // 2i
+    print(math.pow([[-1, 2], [3, 1]], 2));   // [[7, 0], [0, 7]]
+    print(math.derivative('x^2 + x', 'x'));  // 2 * x + 1
+
+    // expressions
+    print(math.eval('12 / (2.3 + 0.7)'));    // 4
+    print(math.eval('12.7 cm to inch'));     // 5 inch
+    print(math.eval('9 / 3 + 2i'));          // 3 + 2i
+    print(math.eval('det([-1, 2; 3, 1])'));  // -7
+
+    // chaining
+    var a = math.chain(3)
+            .add(4)
+            .multiply(2)
+            .done();
+    print(a); // 14
+
+    // helper function to output formatted results.
+    function print(value) {
+        var precision = 14;
+        document.write(math.format(value, precision) + '<br>');
+    }
+</script>
+</body>
+</html>

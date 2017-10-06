@@ -1,0 +1,1 @@
+math.multiply(math.eye(1000, 1000, 'sparse'), math.eye(1000, 1000, 'sparse'));
