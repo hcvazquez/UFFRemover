@@ -84,7 +84,7 @@ With
 
 Also, you can test the UFFs that were cropped from the bundle.
 
-For example, in the math.js example you can try:
+For example, in the math.js example you can try (in your page or in the browser developer console):
 
 	math.multiply(math.eye(1000, 1000, 'sparse'), math.eye(1000, 1000, 'sparse'));
 	
