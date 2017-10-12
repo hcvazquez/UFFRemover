@@ -37,6 +37,10 @@ For Example:
 
 > This step generates a new file, e.g. bundle-instrumented.js
 
+In math.js example:
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/instrument.png)
+
 #### 3. Replace original file with instrumented file
 
 To generate profiling info you need to replace in your site the original file with the instrumented file.
@@ -45,7 +49,11 @@ For Example:
 Replace
 	<script src="bundle.js"></script> 
 With
-	<script src="bundle-instrumented.js"></script> 
+	<script src="bundle-instrumented.js"></script>
+
+In math.js example:
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-instrumented.png)
 	
 #### 5. Generate profiling info
 
@@ -54,6 +62,10 @@ You need to run your application and use it. This step print profiling informati
 #### 6. Save the browser console output into a file
 
 For this step, you need to open the browser console and save the content into a txt file.
+
+In math.js example:
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/profiling.png)
 
 #### 7. Now, you can use the registered information to optimize your application
 
@@ -69,6 +81,10 @@ For Example:
 
 > This step generates a new file, e.g. bundle-optimized.js
 
+In math.js example:
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/optimization.png)
+
 #### 8. Test your optimization file
 
 To test your optimized file you need to replace in your site the original file with the optimized file.
@@ -82,16 +98,22 @@ Replace
 With
 
 	<script src="bundle-optimized.js"></script>
+
+In math.js example:
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-optimized.png)
 	
 
 Also you can test the UFFs that were cropped from the bundle.
 
 For example, in the math.js experiment you can try (in your page, or in the browser developer console):
 
-	math.multiply(math.eye(1000, 1000, 'sparse'), math.eye(1000, 1000, 'sparse'));
+	math.multiply(math.eye(1000, 1000, 'sparse'), math.eye(1000, 1000, 'sparse'));	
 	
 You should not see any error.
 
 If you want to see that functions were loaded lazily, you must put in the browser developer console the code:
 
 	window.uffs
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/testing-optimization.png)
