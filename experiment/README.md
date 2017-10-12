@@ -23,6 +23,8 @@ Node.js can be downloaded from (https://nodejs.org)
 
 #### 1. Go to the path of the project to optimize
 
+> If you don't have one, you can try downloading the Math.js experiment example from https://github.com/hcvazquez/ExperimentExample and following the instructions to run a local server.
+
 For Example:
 	cd [project_to_optimize_path]
 
@@ -82,7 +84,7 @@ With
 	<script src="bundle-optimized.js"></script>
 	
 
-Also, you can test the UFFs that were cropped from the bundle.
+Also you can test the UFFs that were cropped from the bundle.
 
 For example, in the math.js experiment you can try (in your page, or in the browser developer console):
 
