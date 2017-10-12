@@ -84,12 +84,12 @@ With
 
 Also, you can test the UFFs that were cropped from the bundle.
 
-For example, in the math.js example you can try (in your page or in the browser developer console):
+For example, in the math.js experiment you can try (in your page, or in the browser developer console):
 
 	math.multiply(math.eye(1000, 1000, 'sparse'), math.eye(1000, 1000, 'sparse'));
 	
-You should not see any error in the browser developer console.
+You should not see any error.
 
-If you want to see that functions were loaded lazily, you must put in the console the code:
+If you want to see that functions were loaded lazily, you must put in the browser developer console the code:
 
 	window.uffs
