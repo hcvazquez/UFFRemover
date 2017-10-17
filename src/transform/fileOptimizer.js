@@ -92,11 +92,11 @@ var optimizeFile = function (file) {
  */
 var file_stats = {
     "name": "js file analysis",
-    "number_of_functions" : 0,
+    "#Functions_in_bundle" : 0,
     "original_size" : 0,
     "original_min_size" : 0,
     "optimized_min_size" : 0,
-    "number_of_functions_optimized" : 0,
+    "#UFFs detected" : 0,
     "size_of_reduction" : 0,
 	"%_of_reduction" : 0,
     "%_of_UFF_detected" :0,
