@@ -5,6 +5,8 @@ UFFOptimizer is a slimming JavaScript tool for identifying and removing unused f
 
 ## Installation
 
+> Attention: UFFOptimizer only supports ES5!
+
 UFFOptimizer is developed using Node.js execution environment (>= v6.1.0). The following steps are needed for running the tool:
 
 #### 1. Install Node.js environment  
@@ -63,11 +65,16 @@ You need to run your application and use it. This step print profiling informati
 
 For this step, you need to open the browser console and save the content into a txt file.
 
+> Note: In Chrome, please check that "info" logging level is enable.
+
 In math.js example:
 
 ![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/profiling.png)
 
 #### 7. Now, you can use the registered information to optimize your application
+
+How the optimizations works? 
+The optimization removes the UFFs functions from the js file optimized. All the functions removed are listed in a folder created by the tool called "uff" in the same folder in which the optimized file is located. To avoid potential runtime errors owing to functions removed wrongly, UFFOptimizer replace the functions with an AJAX synchronous call that dinamically load the function from the server in case of need it.
 
 > Note: The file to optimize needs to be the original file.
 
