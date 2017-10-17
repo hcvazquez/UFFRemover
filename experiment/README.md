@@ -65,7 +65,7 @@ You need to run your application and use it. This step print profiling informati
 
 For this step, you need to open the browser console and save the content into a txt file.
 
-> Note: In Chrome, please check that "info" logging level is enable.
+> Note: In Chrome, please check that "info" logging level is enable. ![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/hide_all.png)
 
 In math.js example:
 
