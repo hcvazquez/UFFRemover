@@ -94,7 +94,7 @@ In math.js example:
 
 #### 8. Test your optimization file
 
-> Note: Please check that the application has access to the "uff" folder. The ajax call will try to load the functions from the root, for example, [AJAX_call]('uff/$_-7697924661507122750048.js'). 
+> Note: Please check that the application has access to the "uff" folder. The ajax call will try to load the functions from the root. The path to the file look like this: 	[AJAX_call] ('uff/$_-7697924661507122750048.js'). 
 
 To test your optimized file you need to replace in your site the original file with the optimized file.
 
