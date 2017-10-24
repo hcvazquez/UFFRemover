@@ -94,8 +94,6 @@ In math.js example:
 
 #### 8. Test your optimization file
 
-> Note: Please check that the application has access to the "uff" folder. The ajax call will try to load the functions from the root. The path to the file look like this: 	[AJAX_call] ('uff/$_-7697924661507122750048.js'). 
-
 To test your optimized file you need to replace in your site the original file with the optimized file.
 
 For Example:
@@ -107,6 +105,10 @@ Replace
 With
 
 	<script src="bundle-optimized.js"></script>
+
+VERY IMPORTANT! Additionally, in the place where the file was optimized, the optimizer has created an "uff" folder with all optimized functions inside it. You also need to deploy that folder on the server so that the asynchronous load can find the functions.
+
+> Note: Please check that the application has access to the "uff" folder. The ajax call will try to load the functions from the root. The path to the file look like this: [AJAX_call] ('uff/$_-7697924661507122750048.js'). 
 
 In math.js example:
 
