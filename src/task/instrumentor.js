@@ -211,7 +211,7 @@ module.exports.optimizeForBrowser = function (file,code,file_stats) {
                     if(register.isRegistered(register.get_end_instrumentation(node,file))){
                         //console.log("This node is registered: "+register.getKeyForFunction(node,file));
                     }else{
-						file_stats['number_of_functions_optimized']++;
+						file_stats['#UFFs detected']++;
                         //console.log("This node is an UFF: "+register.getKeyForFunction(node,file));
 						console.log(register.getKeyForFunction(node,file));
 						var timestamp = Date.now();

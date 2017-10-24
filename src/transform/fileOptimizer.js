@@ -140,9 +140,9 @@ var optimizeFileBrowser = function (file) {
         /**
          * size metrics
          */
-        file_stats['number_of_functions'] = instrumentor.countFunctions(file, originalCode);
+        file_stats['#Functions_in_bundle'] = instrumentor.countFunctions(file, originalCode);
         var fuctionsInOptimized = instrumentor.countFunctions(file, optimizedCode);
-        file_stats['number_of_functions_optimized'] = file_stats['number_of_functions_optimized']+(file_stats['number_of_functions'] - fuctionsInOptimized);
+        file_stats['#UFFs detected'] = file_stats['#UFFs detected']+(file_stats['#Functions_in_bundle'] - fuctionsInOptimized);
 
         var stats = require('fs').statSync(file);
         file_stats['original_size'] = stats['size'];
@@ -152,7 +152,7 @@ var optimizeFileBrowser = function (file) {
         file_stats['optimized_min_size'] = stats['size'];
         file_stats['size_of_reduction'] = file_stats['original_min_size'] - file_stats['optimized_min_size'];
 		file_stats['%_of_reduction'] = ((file_stats['original_min_size'] - file_stats['optimized_min_size'])/file_stats['original_min_size'])*100;
-        file_stats['%_of_UFF_detected'] = (file_stats['number_of_functions_optimized']/file_stats['number_of_functions'])*100;
+        file_stats['%_of_UFF_detected'] = (file_stats['#UFFs detected']/file_stats['#Functions_in_bundle'])*100;
 
         console.log(file_stats);
 
