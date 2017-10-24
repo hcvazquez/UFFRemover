@@ -108,7 +108,7 @@ With
 
 VERY IMPORTANT! Additionally, in the place where the file was optimized, the optimizer has created an "uff" folder with all optimized functions inside it. You also need to deploy that folder on the server so that the asynchronous load can find the functions.
 
-> Note: Please check that the application has access to the "uff" folder. The ajax call will try to load the functions from the root. The path to the file look like this: [AJAX_call] ('uff/$_-7697924661507122750048.js'). 
+> Note: Please check that the application has access to the "uff" folder. The ajax call will try to load the functions from the root. The path to the file look like this: $dl ('uff/$_-7697924661507122750048.js'). 
 
 In math.js example:
 
