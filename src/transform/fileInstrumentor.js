@@ -36,7 +36,7 @@ module.exports.instrumentFile = function (file) {
         console.log("Reading file "+file);
         fs.readFile(file, 'utf8', function (err, data) {
             if (err) {
-                return console.log("ERROR reading durring instrumentation in " + file);
+                return console.log("ERROR reading durring instrumentation in " + file + " " + err);
             }
 
             var instrumentedCode = instrumentor.instrumentFunctions(file, data);
