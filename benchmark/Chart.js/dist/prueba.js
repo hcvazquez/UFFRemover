@@ -1,2 +1,0 @@
-    function map(arr, fn) {
-    }

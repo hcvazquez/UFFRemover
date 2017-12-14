@@ -1,1 +1,0 @@
-optionator = require('passerror');

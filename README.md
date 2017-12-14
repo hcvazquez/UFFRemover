@@ -1,50 +1,84 @@
 ![UFFO Image](http://fs5.directupload.net/images/170302/d5zleuc5.png)
 # UFFOptimizer
 
-UFFOptimizer is a slimming JavaScript application tool for identifier and remover of unused foreign functions (UFF). 
+UFFOptimizer is a slimming JavaScript tool for identifying and removing unused foreign functions (UFF).
 
 ## Installation
 
-UFFOptimizer is developed on Node.js execution environment (>= v6.1.0). The following steps are needed for run the tool:
+> Attention: UFFOptimizer only supports ES5!
 
-1- install Node.js environment  
-Node.js can be download from (https://nodejs.org)
+UFFOptimizer is developed using Node.js execution environment (>= v6.1.0). The following steps are needed for running the tool:
 
-2- Download the project from github:
+#### 1. Install Node.js environment
+Node.js can be downloaded from (https://nodejs.org)
 
-    git clone git://github.com/icpc17/UFFOptimizer.git
+#### 2. Download the project from github
+
+    git clone git://github.com/hcvazquez/UFFOptimizer.git
     cd UFFOptimizer
 
-3- Install the project dependencies:
+#### 3. Install the project dependencies
 
     npm install
 
-## Regular Use
+## Optimization
 
-UFFOptimizer is designed to optimize single bundle files for use in the browser. The tool need to be used inside the project to optimize:
+#### 1. Go to the path of the project to optimize
 
-	cd projectToOptimize
-	node [UFFO_path] [command] [parameters]
+> If you don't have one, you can try downloading the Math.js experiment example from https://github.com/hcvazquez/ExperimentExample and following the instructions to run a local server.
 
-### Instrument a file
+For Example:
+	cd [project_to_optimize_path]
 
-To instrument a file you can execute the following command:
+#### 2. Instrument your js code using the following command
 
 	node [UFFO_path] instrument_file [file_to_instrument]
 
 For Example:
-
 	node ../../UFFOptimizer instrument_file bundle.js
 
-### Generate profiling info
+> This step generates a new file, e.g. bundle-instrumented.js
 
-You need to run your application so that the instrumented file generates the profiling information. You need to save this information in a file, eg "profiling.txt". If you are in browser context, you need to open the developer console and save the console output into a file.
+In math.js example:
 
-### Optimize a file
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/instrument.png)
 
-> Note: The file to optimize need to be the original file.
+#### 3. Replace original file with instrumented file
 
-You can optimize you original file as follow.
+To generate profiling info you need to replace in your site the original file with the instrumented file.
+
+For Example:
+Replace
+	<script src="bundle.js"></script>
+With
+	<script src="bundle-instrumented.js"></script>
+
+In math.js example:
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-instrumented.png)
+
+#### 5. Generate profiling info
+
+You need to run your application and use it. This step print profiling information about used functions into the browser console.
+
+#### 6. Save the browser console output into a file
+
+For this step, you need to open the browser console and save the content into a txt file.
+
+> Note: In Chrome, please check that "info" logging level is enable. ![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/hide_all.png)
+
+In math.js example:
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/profiling.png)
+
+#### 7. Now, you can use the registered information to optimize your application
+
+How the optimizations works?
+The optimization removes the UFFs functions from the js file optimized. All the functions removed are listed in a folder created by the tool called "uff" in the same folder in which the optimized file is located. To avoid potential runtime errors owing to functions removed wrongly, UFFOptimizer replace the functions with an AJAX synchronous call that dinamically load the function from the server in case of need it.
+
+> Note: The file to optimize needs to be the original file.
+
+You can optimize your original file as follow.
 
 	node [UFFO_path] optimize_file_browser [file_to_optimize] [profiling_file]
 
@@ -52,66 +86,45 @@ For Example:
 
 	node ../../UFFOptimizer optimize_file_browser bundle.js profiling.txt
 
-## Use to test benchmark applications
+> This step generates a new file, e.g. bundle-optimized.js
 
-To use the UFFOptimizer on a project, first need to ensure that the following steps were performed:
+In math.js example:
 
-1- Download the source code of the project to optimize from the benchmark or try another project. 
-	
-2- Install the dependencies
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/optimization.png)
 
-	cd projectToOptimize
-	npm install
+#### 8. Test your optimization file
 
-2- Create the bundle from the source code using the instructions and tools provided by the application. For example:
+To test your optimized file you need to replace in your site the original file with the optimized file.
 
-	npm run-script bundle
-
-3- Run all the tests and verify that they all pass. For example:
-
-	npm run-script test
-
-Once those steps were executed you are already to executing the UFFOptimizer commands. The tool need to be used inside the project to optimize:
-		
-	cd projectToOptimize
-	node [UFFO_path] [command] [parameters]
-	
-
-## Other Commands and parameters
-
-You can use UFFOptimizer in node applications indicating the main file of the application.
-
-### Identify the required modules
-
-To identify the required modules of the application you can execute the following command:
-
-	node [UFFO_path] modules [main file]
-	
 For Example:
 
-	node ../../UFFOptimizer modules src/index.js
+Replace
 
-### Instrument the required modules
+	<script src="bundle.js"></script>
 
-To instrument the required modules of the application you can execute the following command:
+With
 
-	node [UFFO_path] instrument [main file]
-	
-For Example:
+	<script src="bundle-optimized.js"></script>
 
-	node ../../UFFOptimizer instrument src/index.js
-	
-### Optimize the required modules
+VERY IMPORTANT! Additionally, in the place where the file was optimized, the optimizer has created an "uff" folder with all optimized functions inside it. You also need to deploy that folder on the server so that the asynchronous load can find the functions.
 
-To optimize the required modules of the application you need to run the tests of the project to optimize with the required modules instrumented. Additionally you need to put the results of the tests in a file named "profiling.txt" in the root of the project to optimize. Then you can execute the following command:
+> Note: Please check that the application has access to the "uff" folder. The ajax call will try to load the functions from the root. The path to the file look like this: $dl ('uff/$_-7697924661507122750048.js').
 
-	node [UFFO_path] optimize [main file]
-	
-For Example:
+In math.js example:
 
-	npm run-script test > profiling.txt
-	node ../../UFFOptimizer optimize src/index.js
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-optimized.png)
 
-To obtain the optimized bundle you need to generate it again:
 
-	npm run-script bundle
+Also you can test the UFFs that were cropped from the bundle.
+
+For example, in the math.js experiment you can try (in your page, or in the browser developer console):
+
+	math.multiply(math.eye(1000, 1000, 'sparse'), math.eye(1000, 1000, 'sparse'));
+
+You should not see any error.
+
+If you want to see that functions were loaded lazily, you must put in the browser developer console the code:
+
+	window.uffs
+
+![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/testing-optimization.png)
