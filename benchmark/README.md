@@ -1,8 +1,6 @@
 # UFFOptimizer Benchmark
 
-This page list all the applications selected for the evaluation of our approach. All bundles (original and optimized) can be found in the OPTIMIZATION folder of the respective project (Example for messy, https://github.com/icpc17/UFFOptimizer/tree/master/benchmark/messy/OPTIMIZATION).
-
-Additionally, we include two cvs files with more data. The file "Results data.cvs" details the set of applications, their characteristics and findings. Also, "Results data.cvs" contains the results of our approach and reports for each application the size of the minified bundle. On the other hand, "3party results.csv" shows the applications and the third-party applications that we use for a second validation test. 
+This page list all the applications selected for the evaluation of our approach.
 
 ## Use to test benchmark applications
 
