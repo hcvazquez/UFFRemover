@@ -1,0 +1,8 @@
+/benchmark
+/test
+/bin
+/experiment
+/node_modules
+/.idea
+package-lock.json
+.gitignore
