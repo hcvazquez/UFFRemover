@@ -1,33 +1,34 @@
 {
   "name": "UFFOptimizer",
-  "description": "UFF identifier and remover",
+  "description": "Identify and remove unused foreign functions",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "engines": {
-    "node": ">=0.4.0"
-  },
-  "bin": {
-    "es-optimizer": "./index.js"
+    "node": ">=6.1.0"
   },
   "author": "Hernan Vazquez <hernan.c.vazquez@gmail.com> (https://github.com/hcvazquez)",
+  "contributors": [
+    "Santiago Vidal (https://github.com/santiago-a-vidal)",
+    "Leonardo Canalejo (https://github.com/leocanalejo)"
+  ],
   "dependencies": {
-    "ast-types": "^0.9.0",
     "acorn": "^3.3.0",
-    "escodegen": "^1.8.1",
-    "estraverse": "^4.1.1",
-    "through2": "^2.0.0",
-    "path-browserify": "~0.0.0",
-    "browserify": "^13.0.0",
-    "esprima": "^2.7.1",
+    "ast-types": "^0.9.14",
     "babelify": "^6.0.1",
-    "uglify-js": "*"
+    "browserify": "^13.0.0",
+    "escodegen": "^1.9.0",
+    "esprima": "^2.7.1",
+    "estraverse": "^4.1.1",
+    "path-browserify": "~0.0.0",
+    "through2": "^2.0.0",
+    "uglify-js": "^3.2.2"
   },
   "devDependencies": {
     "babel": "^6.3.26",
     "babel-preset-es2015": "^6.3.13",
-    "babel-register": "^6.3.13",
+    "babel-register": "^6.26.0",
     "chai": "^3.4.1",
-    "espree": "^3.1.1",
+    "espree": "^3.5.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",
     "gulp-bump": "^1.0.0",
@@ -35,18 +36,14 @@
     "gulp-espower": "^1.0.2",
     "gulp-filter": "^3.0.1",
     "gulp-git": "^1.6.1",
-    "gulp-util": "*",
     "gulp-mocha": "^2.2.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tag-version": "^1.3.0",
-    "jsdoc": "^3.4.0",
+    "gulp-util": "*",
+    "jsdoc": "^3.5.5",
     "lazypipe": "^1.0.1",
     "vinyl-source-stream": "^1.1.0"
   },
-  "license": "Apache-2.0",
-  "scripts": {
-    "test": "node lib/index.js",
-    "instrument": "node ./src/transform/transform.js"
-  }
+  "license": "Apache-2.0"
 }
