@@ -41,7 +41,7 @@ For Example:
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/instrument.png)
+![image](https://raw.githubusercontent.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/instrument.png)
 
 #### 3. Replace original file with instrumented file
 
@@ -55,7 +55,7 @@ With
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-instrumented.png)
+![image](https://raw.githubusercontent.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-instrumented.png)
 
 #### 5. Generate profiling info
 
@@ -69,7 +69,7 @@ For this step, you need to open the browser console and save the content into a 
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/profiling.png)
+![image](https://raw.githubusercontent.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/profiling.png)
 
 #### 7. Now, you can use the registered information to optimize your application
 
@@ -90,7 +90,7 @@ For Example:
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/optimization.png)
+![image](https://raw.githubusercontent.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/optimization.png)
 
 #### 8. Test your optimization file
 
@@ -112,7 +112,7 @@ VERY IMPORTANT! Additionally, in the place where the file was optimized, the opt
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-optimized.png)
+![image](https://raw.githubusercontent.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-optimized.png)
 
 
 Also you can test the UFFs that were cropped from the bundle.
@@ -127,4 +127,4 @@ If you want to see that functions were loaded lazily, you must put in the browse
 
 	window.uffs
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/testing-optimization.png)
+![image](https://raw.githubusercontent.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/testing-optimization.png)
