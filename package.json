@@ -1,8 +1,12 @@
 {
-  "name": "UFFOptimizer",
+  "name": "uffoptimizer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hcvazquez/UFFOptimizer"
+  },
   "description": "Identify and remove unused foreign functions",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "engines": {
     "node": ">=6.1.0"
   },
@@ -45,5 +49,17 @@
     "lazypipe": "^1.0.1",
     "vinyl-source-stream": "^1.1.0"
   },
+  "bin": {
+    "uff": "./bin/uff.js"
+  },
+  "keywords": [
+    "optimization",
+    "optimizer",
+    "code",
+    "performance",
+    "slimming",
+    "unused",
+    "function"
+  ],
   "license": "Apache-2.0"
 }
