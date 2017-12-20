@@ -103,6 +103,10 @@ module.exports.instrument_file_ga = function (mainFile) {
     return require("./fileInstrumentor.js").instrumentFileGA(mainFile);
 };
 
+module.exports.min = function (mainFile) {
+    return require("./fileMinify.js").minifyFile(mainFile);
+};
+
 module.exports.format_file = function (mainFile) {
     return require("./fileFormat.js").formatFile(mainFile);
 };
