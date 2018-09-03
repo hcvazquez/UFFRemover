@@ -1,13 +1,11 @@
 ![UFFO Image](http://fs5.directupload.net/images/170302/d5zleuc5.png)
-# UFFOptimizer
+# UFFRemover
 
-UFFOptimizer is a slimming JavaScript tool for identifying and removing unused foreign functions (UFF).
+UFFRemover is a slimming JavaScript tool for identifying and removing unused foreign functions (UFF).
 
 ## Installation
 
-> Attention: UFFOptimizer only supports ES5!
-
-UFFOptimizer is developed using Node.js execution environment (>= v6.1.0). The following steps are needed for running the tool:
+UFFRemover is developed using Node.js execution environment (>= v6.1.0). The following steps are needed for running the tool:
 
 #### 1. Install Node.js environment
 Node.js can be downloaded from (https://nodejs.org)
@@ -15,7 +13,7 @@ Node.js can be downloaded from (https://nodejs.org)
 #### 2. Download the project from github
 
     git clone git://github.com/hcvazquez/UFFOptimizer.git
-    cd UFFOptimizer
+    cd UFFRemover
 
 #### 3. Install the project dependencies
 
@@ -35,7 +33,7 @@ For Example:
 	node [UFFO_path] instrument_file [file_to_instrument]
 
 For Example:
-	node ../../UFFOptimizer instrument_file bundle.js
+	node ../../UFFRemover instrument_file bundle.js
 
 > This step generates a new file, e.g. bundle-instrumented.js
 
@@ -74,7 +72,7 @@ In math.js example:
 #### 7. Now, you can use the registered information to optimize your application
 
 How the optimizations works?
-The optimization removes the UFFs functions from the js file optimized. All the functions removed are listed in a folder created by the tool called "uff" in the same folder in which the optimized file is located. To avoid potential runtime errors owing to functions removed wrongly, UFFOptimizer replace the functions with an AJAX synchronous call that dinamically load the function from the server in case of need it.
+The optimization removes the UFFs functions from the js file optimized. All the functions removed are listed in a folder created by the tool called "uff" in the same folder in which the optimized file is located. To avoid potential runtime errors owing to functions removed wrongly, UFFRemover replace the functions with an AJAX synchronous call that dinamically load the function from the server in case of need it.
 
 > Note: The file to optimize needs to be the original file.
 
