@@ -1,4 +1,4 @@
-![UFFO Image](http://fs5.directupload.net/images/170302/d5zleuc5.png)
+![UFF Image](http://fs5.directupload.net/images/170302/d5zleuc5.png)
 # UFFRemover
 
 UFFRemover is a slimming JavaScript tool for identifying and removing unused foreign functions (UFF).
@@ -12,7 +12,7 @@ Node.js can be downloaded from (https://nodejs.org)
 
 #### 2. Download the project from github
 
-    git clone git://github.com/hcvazquez/UFFOptimizer.git
+    git clone git://github.com/hcvazquez/UFFRemover.git
     cd UFFRemover
 
 #### 3. Install the project dependencies
@@ -30,7 +30,7 @@ For Example:
 
 #### 2. Instrument your js code using the following command
 
-	node [UFFO_path] instrument_file [file_to_instrument]
+	node [UFF_path] instrument_file [file_to_instrument]
 
 For Example:
 	node ../../UFFRemover instrument_file bundle.js
@@ -39,7 +39,7 @@ For Example:
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/instrument.png)
+![image](https://github.com/hcvazquez/UFFRemover/blob/master/experiment/img/instrument.png)
 
 #### 3. Replace original file with instrumented file
 
@@ -53,7 +53,7 @@ With
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-instrumented.png)
+![image](https://github.com/hcvazquez/UFFRemover/blob/master/experiment/img/replace-instrumented.png)
 
 #### 5. Generate profiling info
 
@@ -63,11 +63,11 @@ You need to run your application and use it. This step print profiling informati
 
 For this step, you need to open the browser console and save the content into a txt file.
 
-> Note: In Chrome, please check that "info" logging level is enable. ![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/hide_all.png)
+> Note: In Chrome, please check that "info" logging level is enable. ![image](https://github.com/hcvazquez/UFFRemover/blob/master/experiment/img/hide_all.png)
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/profiling.png)
+![image](https://github.com/hcvazquez/UFFRemover/blob/master/experiment/img/profiling.png)
 
 #### 7. Now, you can use the registered information to optimize your application
 
@@ -78,17 +78,17 @@ The optimization removes the UFFs functions from the js file optimized. All the 
 
 You can optimize your original file as follow.
 
-	node [UFFO_path] optimize_file_browser [file_to_optimize] [profiling_file]
+	node [UFF_path] optimize_file_browser [file_to_optimize] [profiling_file]
 
 For Example:
 
-	node ../../UFFOptimizer optimize_file_browser bundle.js profiling.txt
+	node ../../UFFRemover optimize_file_browser bundle.js profiling.txt
 
 > This step generates a new file, e.g. bundle-optimized.js
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/optimization.png)
+![image](https://github.com/hcvazquez/UFFRemover/blob/master/experiment/img/optimization.png)
 
 #### 8. Test your optimization file
 
@@ -110,7 +110,7 @@ VERY IMPORTANT! Additionally, in the place where the file was optimized, the opt
 
 In math.js example:
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/replace-optimized.png)
+![image](https://github.com/hcvazquez/UFFRemover/blob/master/experiment/img/replace-optimized.png)
 
 
 Also you can test the UFFs that were cropped from the bundle.
@@ -125,4 +125,4 @@ If you want to see that functions were loaded lazily, you must put in the browse
 
 	window.uffs
 
-![image](https://github.com/hcvazquez/UFFOptimizer/blob/master/experiment/img/testing-optimization.png)
+![image](https://github.com/hcvazquez/UFFRemover/blob/master/experiment/img/testing-optimization.png)
